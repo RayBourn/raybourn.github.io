@@ -10,6 +10,13 @@
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Habits</title>
+      <link>http://localhost:1313/posts/habits---copy/</link>
+      <pubDate>Wed, 07 Jan 2026 21:49:07 +0530</pubDate>
+      <guid>http://localhost:1313/posts/habits---copy/</guid>
+      <description>&lt;p&gt;Never share any thing online sensitive&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Habits</title>
       <link>http://localhost:1313/posts/habits/</link>
       <pubDate>Wed, 07 Jan 2026 21:49:07 +0530</pubDate>
       <guid>http://localhost:1313/posts/habits/</guid>
