@@ -2,26 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/posts/habits---copy/</loc>
-    <lastmod>2026-01-07T21:49:07+05:30</lastmod>
+    <loc>//localhost:1313/about/</loc>
+    <lastmod>2026-01-09T18:23:38+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/habits/</loc>
-    <lastmod>2026-01-07T21:49:07+05:30</lastmod>
+    <loc>//localhost:1313/posts/atomic-habits/</loc>
+    <lastmod>2026-01-09T14:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2026-01-07T21:49:07+05:30</lastmod>
+    <loc>//localhost:1313/posts/</loc>
+    <lastmod>2026-01-09T14:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/my-first-post/</loc>
-    <lastmod>2026-01-07T21:25:24+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>//localhost:1313/</loc>
     <lastmod>2026-01-07T21:24:01+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/hello/</loc>
+    <loc>//localhost:1313/posts/discipline/</loc>
     <lastmod>2026-01-07T21:02:46+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>//localhost:1313/posts/habits/</loc>
+    <lastmod>2026-01-07T21:02:46+05:30</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>//localhost:1313/categories/</loc>
+  </url><url>
+    <loc>//localhost:1313/tags/</loc>
   </url>
 </urlset>
