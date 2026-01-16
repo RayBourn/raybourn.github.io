@@ -17,7 +17,7 @@ customCSS = ["css/custom.css"]
 
 
 [params.avatar]
-     assetPath = "images/avatar.jpg"
+     assetPath = "Images/avatar.jpg"
      enableResize = true
 
 [markup]
