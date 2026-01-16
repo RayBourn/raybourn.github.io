@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welcome on PS Notes</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content in Welcome on PS Notes</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Jan 2026 18:23:38 +0530</lastBuildDate>
+    <atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>//localhost:1313/about/</link>
+      <pubDate>Fri, 09 Jan 2026 18:23:38 +0530</pubDate>
+      <guid>//localhost:1313/about/</guid>
+      <description>&lt;p&gt;+++&lt;/p&gt;&#xA;&lt;p&gt;title = &amp;ldquo;About Me&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;date = &amp;ldquo;2025-01-09&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;+++&lt;/p&gt;&#xA;&lt;p&gt;# Hi, I&amp;rsquo;m Ray 👋&lt;/p&gt;&#xA;&lt;p&gt;Welcome to my blog! I write about habits, learning, and personal growth.&lt;/p&gt;&#xA;&lt;p&gt;## What I Do&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m passionate about self-improvement and sharing what I learn.&lt;/p&gt;&#xA;&lt;p&gt;## Why This Blog?&lt;/p&gt;&#xA;&lt;p&gt;This blog is my way of documenting my journey and hopefully helping others along the way.&lt;/p&gt;&#xA;&lt;p&gt;## Get in Touch&lt;/p&gt;&#xA;&lt;p&gt;Feel free to reach out via:&lt;/p&gt;&#xA;&lt;p&gt;- Email: &lt;a href=&#34;mailto:your.email@example.com&#34;&gt;your.email@example.com&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Building Atomic Habits</title>
+      <link>//localhost:1313/posts/atomic-habits/</link>
+      <pubDate>Fri, 09 Jan 2026 14:00:00 +0530</pubDate>
+      <guid>//localhost:1313/posts/atomic-habits/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;&lt;mark&gt;Habits are the compound interest&lt;/mark&gt; of self-improvement.&lt;/p&gt;&#xA;&lt;p&gt;This post explores &lt;span class=&#34;half-highlight&#34;&gt;how small changes lead to remarkable results&lt;/span&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The 1% Rule&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Habit Stacking&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Environment Design&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;&#xA;&lt;p&gt;Remember: &lt;mark&gt;You do not rise to the level of your goals. You fall to the level of your systems.&lt;/mark&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Discipline</title>
+      <link>//localhost:1313/posts/discipline/</link>
+      <pubDate>Wed, 07 Jan 2026 21:02:46 +0530</pubDate>
+      <guid>//localhost:1313/posts/discipline/</guid>
+      <description>&lt;p&gt;We’ve all been there: the burst of inspiration at midnight, the expensive gym membership purchased on January 1st, or the sudden vow to &amp;ldquo;finally get organized.&amp;rdquo; But by February, the sneakers are collecting dust and the old patterns have crept back in.&lt;/p&gt;&#xA;&lt;p&gt;&lt;mark&gt;&lt;span style=&#34;font-size: 1.5em; color: #008080;&#34;&gt; Important highlighted idea &lt;/span&gt;&lt;/mark&gt;&lt;/p&gt;&#xA;&lt;p&gt;The problem isn&amp;rsquo;t your lack of discipline; it’s a misunderstanding of how change actually happens. Real transformation doesn&amp;rsquo;t come from massive, one-time efforts. It comes from habits—the small, repeated actions that eventually become your &amp;ldquo;autopilot.&amp;rdquo;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>habits</title>
+      <link>//localhost:1313/posts/habits/</link>
+      <pubDate>Wed, 07 Jan 2026 21:02:46 +0530</pubDate>
+      <guid>//localhost:1313/posts/habits/</guid>
+      <description>&lt;p&gt;yes&lt;/p&gt;&#xA;&lt;p&gt;Habits are small actions that we repeat every day, often without thinking.&lt;/p&gt;&#xA;&lt;p&gt;They shape our life more than big decisions.&lt;/p&gt;&#xA;&lt;p&gt;Good habits slowly build success, while bad habits quietly create problems.&lt;/p&gt;&#xA;&lt;p&gt;Waking up early is a habit that gives extra time and calmness.&lt;/p&gt;&#xA;&lt;p&gt;Reading daily improves knowledge and thinking ability.&lt;/p&gt;&#xA;&lt;p&gt;Healthy eating habits keep the body strong and energetic.&lt;/p&gt;&#xA;&lt;p&gt;Regular exercise builds discipline and confidence.&lt;/p&gt;&#xA;&lt;p&gt;Bad habits like procrastination waste valuable time.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

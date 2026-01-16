@@ -1,0 +1,125 @@
+/* === Disable floating Table of Contents (Mana theme) === */
+
+/* Right sidebar TOC */
+aside .toc,
+aside .toc-container,
+aside nav#TableOfContents,
+aside .article-toc {
+  display: none !important;
+}
+
+/* Floating / sticky TOC */
+.floating-toc,
+.toc-wrapper,
+.toc-fixed,
+.toc-sticky {
+  display: none !important;
+}
+
+/* If sidebar exists only for TOC, collapse it */
+.container .right-sidebar {
+  display: none !important;
+}
+
+/* === Half Highlight Effect === */
+/* Using box-shadow method (compatible with Mana theme) */
+
+article .half-highlight,
+.single-post .half-highlight,
+.post-body .half-highlight,
+.post-content .half-highlight,
+main .half-highlight {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 0.15em !important;
+  box-shadow: inset 0 -0.5em 0 rgba(255, 235, 59, 0.4) !important;
+  display: inline !important;
+}
+
+article .half-highlight-blue,
+.single-post .half-highlight-blue,
+.post-body .half-highlight-blue,
+.post-content .half-highlight-blue,
+main .half-highlight-blue {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 0.15em !important;
+  box-shadow: inset 0 -0.5em 0 rgba(100, 181, 246, 0.4) !important;
+  display: inline !important;
+}
+
+article .half-highlight-green,
+.single-post .half-highlight-green,
+.post-body .half-highlight-green,
+.post-content .half-highlight-green,
+main .half-highlight-green {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 0.15em !important;
+  box-shadow: inset 0 -0.5em 0 rgba(129, 199, 132, 0.4) !important;
+  display: inline !important;
+}
+
+article .half-highlight-pink,
+.single-post .half-highlight-pink,
+.post-body .half-highlight-pink,
+.post-content .half-highlight-pink,
+main .half-highlight-pink {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 0.15em !important;
+  box-shadow: inset 0 -0.5em 0 rgba(244, 143, 177, 0.4) !important;
+  display: inline !important;
+}
+
+/* Alternative: Using linear-gradient (if box-shadow doesn't work) */
+span.hl-gradient {
+  background: linear-gradient(180deg, transparent 50%, rgba(255, 235, 59, 0.5) 50%) !important;
+  padding: 0 2px !important;
+  display: inline !important;
+}
+
+
+
+/* Add to assets/css/custom.css */
+
+/* Change accent colors */
+:root {
+  --accent-primary: #your-color;
+}
+
+/* Customize hero section */
+.hero-title {
+  font-size: 3rem;
+}
+
+/* Add your custom styles here */
+
+/* === Fix Image Overflow === */
+/* Make all images responsive and fit within container */
+article img,
+.post-content img,
+.single-post img,
+.post-body img,
+main article img {
+  max-width: 100% !important;
+  height: auto !important;
+  display: block !important;
+  margin: 1.5rem auto !important;
+  border-radius: 0.5rem !important;
+}
+
+/* Fix for images inside paragraphs */
+article p img,
+.post-content p img {
+  margin: 1rem auto !important;
+}
+
+/* Prevent overflow on any media */
+article video,
+article iframe,
+.post-content video,
+.post-content iframe {
+  max-width: 100% !important;
+  height: auto !important;
+}

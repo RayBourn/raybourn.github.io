@@ -1,0 +1,80 @@
+baseURL = "https://yourusername.github.io"
+languageCode = 'en-us'
+title = 'PS Notes'
+theme = "mana"
+
+canonifyURLs = true
+relativeURLs = true
+
+[params]
+heroTitleLine1 = "PS'S NOTES"  # Big title
+heroTitleLine2 = "Thoughts on habits, learning, and life"  # Subtitle
+description = "A personal blog about habits, learning, and life."
+
+author = "Parminder Rana"
+showToc = false
+customCSS = ["css/custom.css"]
+
+
+[params.avatar]
+     assetPath = "images/avatar.jpg"
+     enableResize = true
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params.social]
+    github = "https://github.com/yourusername"
+    medium = "https://medium.com/@yourusername"
+    email = "your.email@example.com"
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10  # Lower weight = appears first
+
+[[menus.main]]
+  name = 'Posts'
+  pageRef = '/posts'
+  weight = 20
+
+[[menus.main]]
+  name = 'Tags'
+  pageRef = '/tags'
+  weight = 30
+
+[[menus.main]]
+  name = 'About'
+  url = '/about/'
+  weight = 40
+
+
+
+# Table of Contents
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 6
+    ordered = false
+
+# Syntax highlighting
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    noClasses = false
+    style = "catppuccin-macchiato"
+
+# Code themes
+[params.codeHighlight]
+  darkTheme = "catppuccin-macchiato"
+  lightTheme = "catppuccin-frappe"
+
+# Pagination
+[pagination]
+  pageSize = 10
+
+# Enable search
+[outputs]
+  home = ["HTML", "JSON"]
+  
