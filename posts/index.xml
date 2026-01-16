@@ -2,31 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on PS Notes</title>
-    <link>//localhost:1313/posts/</link>
+    <link>http://localhost:1313/posts/</link>
     <description>Recent content in Posts on PS Notes</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Jan 2026 14:00:00 +0530</lastBuildDate>
-    <atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Jan 2026 21:08:46 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kindle Paperwhite: A Distraction-Free Reading Companion for the Digital Age</title>
+      <link>http://localhost:1313/posts/kindle/</link>
+      <pubDate>Thu, 15 Jan 2026 21:08:46 +0530</pubDate>
+      <guid>http://localhost:1313/posts/kindle/</guid>
+      <description>&lt;p&gt;In a world dominated by smartphones, notifications, and endless scrolling, finding focused reading time has become harder than ever. This is where the &lt;strong&gt;Kindle Paperwhite&lt;/strong&gt; truly shines. Designed specifically for readers, it bridges the gap between the charm of traditional books and the convenience of modern technology.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-kindle-paperwhite&#34;&gt;What Is Kindle Paperwhite?&lt;/h2&gt;&#xA;&lt;p&gt;Kindle Paperwhite is Amazon’s popular e-reader that uses &lt;strong&gt;e-ink technology&lt;/strong&gt; to mimic the appearance of real paper. Unlike tablets or phones, it doesn’t strain your eyes and is built solely for reading books, not for apps, games, or social media. This single-purpose design makes it ideal for students, teachers, professionals, and anyone who loves uninterrupted reading.&#xA;&lt;img src=&#34;https://blog.the-ebook-reader.com/wp-content/uploads/2021/12/Dark-Mode-vs-Warm-Frontlight.jpg&#34; alt=&#34;Image&#34;&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Building Atomic Habits</title>
-      <link>//localhost:1313/posts/atomic-habits/</link>
+      <link>http://localhost:1313/posts/atomic-habits/</link>
       <pubDate>Fri, 09 Jan 2026 14:00:00 +0530</pubDate>
-      <guid>//localhost:1313/posts/atomic-habits/</guid>
-      <description>&lt;p&gt;# introduction&lt;/p&gt;&#xA;&lt;p&gt;&lt;mark&gt;Habits are the compound interest&lt;/mark&gt; of self-improvement. This post explores &lt;span class=&#34;half-highlight&#34;&gt;how small changes lead to remarkable results&lt;/span&gt;.&lt;/p&gt;&#xA;&lt;p&gt;## Key Concepts&lt;/p&gt;&#xA;&lt;p&gt; &#x9;1. The 1% Rule&lt;/p&gt;&#xA;&lt;p&gt; &#x9;2. Habit Stacking&lt;/p&gt;&#xA;&lt;p&gt; &#x9;3. Environment Design&lt;/p&gt;&#xA;&lt;p&gt;## Conclusion&lt;/p&gt;&#xA;&lt;p&gt;Remember: &lt;mark&gt;You do not rise to the level of your goals. You fall to the level of your systems.&lt;/mark&gt;&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/atomic-habits/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;&lt;mark&gt;Habits are the compound interest&lt;/mark&gt; of self-improvement.&lt;/p&gt;&#xA;&lt;p&gt;This post explores &lt;span class=&#34;half-highlight&#34;&gt;how small changes lead to remarkable results&lt;/span&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-concepts&#34;&gt;Key Concepts&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;The 1% Rule&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Habit Stacking&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Environment Design&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;&#xA;&lt;p&gt;Remember: &lt;mark&gt;You do not rise to the level of your goals. You fall to the level of your systems.&lt;/mark&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Discipline</title>
-      <link>//localhost:1313/posts/discipline/</link>
+      <link>http://localhost:1313/posts/discipline/</link>
       <pubDate>Wed, 07 Jan 2026 21:02:46 +0530</pubDate>
-      <guid>//localhost:1313/posts/discipline/</guid>
-      <description>&lt;p&gt;&lt;mark&gt;&lt;span class=&#34;text-xl text-accent&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;This idea matters most.&lt;/p&gt;&#xA;&lt;p&gt;&lt;/span&gt;&lt;/mark&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;heading&#34;&gt;Heading&lt;/h1&gt;&#xA;&lt;h2 id=&#34;heading-2&#34;&gt;Heading 2&lt;/h2&gt;&#xA;&lt;h3 id=&#34;heading-3&#34;&gt;Heading 3&lt;/h3&gt;&#xA;&lt;p&gt;&lt;em&gt;Itaic&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Bold&lt;/strong&gt;&lt;/p&gt;&#xA;&#xA;&#xA;&#xA;  &lt;blockquote class=&#34;blockquote-regular&#34;&gt;&#xA;    &lt;p&gt;Quote&lt;/p&gt;&#xA;&#xA;  &lt;/blockquote&gt;&#xA;&#xA;&lt;p&gt;We’ve all been there: the burst of inspiration at midnight, the expensive gym membership purchased on January 1st, or the sudden vow to &amp;ldquo;finally get organized.&amp;rdquo; But by February, the sneakers are collecting dust and the old patterns have crept back in.&lt;/p&gt;&#xA;&lt;p&gt;&lt;mark&gt;&lt;span style=&#34;font-size: 1.5em; color: #008080;&#34;&gt; Important highlighted idea &lt;/span&gt;&lt;/mark&gt;&lt;/p&gt;&#xA;&lt;p&gt;The problem isn&amp;rsquo;t your lack of discipline; it’s a misunderstanding of how change actually happens. Real transformation doesn&amp;rsquo;t come from massive, one-time efforts. It comes from habits—the small, repeated actions that eventually become your &amp;ldquo;autopilot.&amp;rdquo;&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/discipline/</guid>
+      <description>&lt;p&gt;We’ve all been there: the burst of inspiration at midnight, the expensive gym membership purchased on January 1st, or the sudden vow to &amp;ldquo;finally get organized.&amp;rdquo; But by February, the sneakers are collecting dust and the old patterns have crept back in.&lt;/p&gt;&#xA;&lt;p&gt;&lt;mark&gt;&lt;span style=&#34;font-size: 1.5em; color: #008080;&#34;&gt; Important highlighted idea &lt;/span&gt;&lt;/mark&gt;&lt;/p&gt;&#xA;&lt;p&gt;The problem isn&amp;rsquo;t your lack of discipline; it’s a misunderstanding of how change actually happens. Real transformation doesn&amp;rsquo;t come from massive, one-time efforts. It comes from habits—the small, repeated actions that eventually become your &amp;ldquo;autopilot.&amp;rdquo;&lt;/p&gt;</description>
     </item>
     <item>
       <title>habits</title>
-      <link>//localhost:1313/posts/habits/</link>
+      <link>http://localhost:1313/posts/habits/</link>
       <pubDate>Wed, 07 Jan 2026 21:02:46 +0530</pubDate>
-      <guid>//localhost:1313/posts/habits/</guid>
+      <guid>http://localhost:1313/posts/habits/</guid>
       <description>&lt;p&gt;yes&lt;/p&gt;&#xA;&lt;p&gt;Habits are small actions that we repeat every day, often without thinking.&lt;/p&gt;&#xA;&lt;p&gt;They shape our life more than big decisions.&lt;/p&gt;&#xA;&lt;p&gt;Good habits slowly build success, while bad habits quietly create problems.&lt;/p&gt;&#xA;&lt;p&gt;Waking up early is a habit that gives extra time and calmness.&lt;/p&gt;&#xA;&lt;p&gt;Reading daily improves knowledge and thinking ability.&lt;/p&gt;&#xA;&lt;p&gt;Healthy eating habits keep the body strong and energetic.&lt;/p&gt;&#xA;&lt;p&gt;Regular exercise builds discipline and confidence.&lt;/p&gt;&#xA;&lt;p&gt;Bad habits like procrastination waste valuable time.&lt;/p&gt;</description>
     </item>
   </channel>
