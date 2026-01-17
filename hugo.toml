@@ -78,3 +78,8 @@ customCSS = ["css/custom.css"]
 [outputs]
   home = ["HTML", "JSON"]
   
+
+[params]
+  [params.umami]
+    # Set your Umami website ID for page tracking
+    websiteId = "3c827e12-dd5b-4e53-a278-a558abd3de1a"
