@@ -14,7 +14,6 @@ image = "image_search_1647685305431.jpg"
 We’ve all been there: the burst of inspiration at midnight, the expensive gym membership purchased on January 1st, or the sudden vow to "finally get organized." But by February, the sneakers are collecting dust and the old patterns have crept back in.
 
 
-
 <mark><span style="font-size: 1.5em; color: #008080;"> Important highlighted idea </span></mark>
 
 

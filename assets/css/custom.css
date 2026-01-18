@@ -105,7 +105,7 @@ main article img {
   max-width: 100% !important;
   height: auto !important;
   display: block !important;
-  margin: 1.5rem auto !important;
+  margin:auto !important;
   border-radius: 0.5rem !important;
 }
 
