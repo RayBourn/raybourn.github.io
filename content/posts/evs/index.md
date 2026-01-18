@@ -8,4 +8,4 @@ image= "/images/1200x1200_ea-top-100.jpg"
 so now i can write here what is going on.
 
 so this cna wtie
-
+ਹੁਣ ਮੈਂ ਇੱਥੇ ਲਿਖ ਸਕਦਾ ਹਾਂ
