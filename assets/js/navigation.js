@@ -106,16 +106,16 @@ function initNavigation() {
   if (!header) return;
 
   window.addEventListener("scroll", () => {
-    // Only apply on 'posts' section (articles)
-    if (!document.body.classList.contains("section-posts")) return;
+    // Only apply on Single Article Pages (posts section + single page kind)
+    if (!document.body.classList.contains("section-posts") || !document.body.classList.contains("kind-page")) return;
 
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > lastScrollTop && scrollTop > 80) {
-      // scrolling down
+      // scrolling DOWN -> hide
       header.classList.add("header-hidden");
     } else {
-      // scrolling up
+      // scrolling UP -> show
       header.classList.remove("header-hidden");
     }
 
@@ -131,14 +131,16 @@ function initNavigation() {
   if (!header) return;
 
   window.addEventListener("scroll", () => {
-    // Only apply on 'posts' section (articles)
-    if (!document.body.classList.contains("section-posts")) return;
+    // Only apply on Single Article Pages (posts section + single page kind)
+    if (!document.body.classList.contains("section-posts") || !document.body.classList.contains("kind-page")) return;
 
     const current = window.scrollY || document.documentElement.scrollTop;
 
     if (current > lastScroll && current > 100) {
+       // scrolling DOWN -> hide
       header.classList.add("is-hidden");
     } else {
+       // scrolling UP -> show
       header.classList.remove("is-hidden");
     }
 
