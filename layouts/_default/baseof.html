@@ -7,7 +7,9 @@
   <head>
     {{ partial "head.html" . }}
   </head>
-  <body class="flex flex-col min-h-screen kind-{{ .Kind }}">
+  <body
+    class="flex flex-col min-h-screen kind-{{ .Kind }} section-{{ .Section }}"
+  >
     <a
       href="#main-content"
       class="skip-to-main"

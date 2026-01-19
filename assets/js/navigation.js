@@ -106,8 +106,8 @@ function initNavigation() {
   if (!header) return;
 
   window.addEventListener("scroll", () => {
-    // Only apply on article pages
-    if (!document.body.classList.contains("kind-page")) return;
+    // Only apply on 'posts' section (articles)
+    if (!document.body.classList.contains("section-posts")) return;
 
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -131,8 +131,8 @@ function initNavigation() {
   if (!header) return;
 
   window.addEventListener("scroll", () => {
-    // Only apply on article pages
-    if (!document.body.classList.contains("kind-page")) return;
+    // Only apply on 'posts' section (articles)
+    if (!document.body.classList.contains("section-posts")) return;
 
     const current = window.scrollY || document.documentElement.scrollTop;
 

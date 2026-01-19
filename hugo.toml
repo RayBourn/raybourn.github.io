@@ -7,9 +7,9 @@ canonifyURLs = true
 relativeURLs = true
 
 [params]
-heroTitleLine1 = "PS'S NOTES"  # Big title
-heroTitleLine2 = "Thoughts on habits, learning, and life"  # Subtitle
-description = "A personal blog about habits, learning, and life."
+heroTitleLine1 = "PS NOTES TO"  # Big title
+heroTitleLine2 = "CURIOUS MINDS"  # Subtitle
+description = "Thoughts on Science, Technology and life."
 
 author = "Parminder Rana"
 showToc = false
@@ -17,7 +17,7 @@ customCSS = ["css/custom.css"]
 
 
 [params.avatar]
-     assetPath = "Images/avatar.jpg"
+     assetPath = "Images/pslogo.png"
      enableResize = true
 
 [markup]
