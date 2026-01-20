@@ -1,5 +1,16 @@
 <div class="post-meta">
   <div class="post-meta-info">
+    <span class="post-author">
+      <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+      </svg>
+      {{ site.Params.author }}
+    </span>
+    <span class="meta-separator">•</span>
     <time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}" class="post-date">
       <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path
@@ -10,21 +21,6 @@
       </svg>
       {{ .Date.Format "January 2, 2006" }}
     </time>
-
-    <span class="meta-separator">•</span>
-
-    {{ if .WordCount }}
-      <span class="post-word-count">
-        <svg class="meta-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-        </svg>
-        {{ .WordCount }} words
-      </span>
-    {{ end }}
 
     {{ if .ReadingTime }}
       <span class="meta-separator">•</span>

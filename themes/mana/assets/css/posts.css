@@ -99,7 +99,8 @@
 
 .post-meta-inline .post-date,
 .post-meta-inline .post-reading-time,
-.post-meta-inline .post-word-count {
+.post-meta-inline .post-word-count,
+.post-meta-inline .post-author {
   display: flex;
   align-items: center;
   gap: 0.375rem;

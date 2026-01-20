@@ -248,7 +248,8 @@
 
 .post-date,
 .post-reading-time,
-.post-word-count {
+.post-word-count,
+.post-author {
   display: flex;
   align-items: center;
   gap: 0.375rem;

@@ -35,9 +35,9 @@ With the Kindle Paperwhite, you can store **thousands of books** in one device. 
 
 Readers also benefit from:
 
-* Instant dictionary lookups
-* Highlighting and note-taking
-* Adjustable font size and style
+- Instant dictionary lookups
+- Highlighting and note-taking
+- Adjustable font size and style
 
 These features are particularly useful for students, teachers, and language learners.
 
@@ -51,9 +51,9 @@ Unlike smartphones that need daily charging, the Kindle Paperwhite can last **we
 
 It also:
 
-* Reduces eye strain
-* Improves focus and reading speed
-* Encourages a regular reading habit
+- Reduces eye strain
+- Improves focus and reading speed
+- Encourages a regular reading habit
 
 For teachers and students, this distraction-free environment can significantly improve comprehension and consistency.
 
@@ -61,10 +61,10 @@ For teachers and students, this distraction-free environment can significantly i
 
 Kindle Paperwhite is ideal for:
 
-* **Avid readers** who read daily
-* **Students and teachers** who handle large reading material
-* **Travelers** who want lightweight access to many books
-* **Night readers** who need eye comfort
+- **Avid readers** who read daily
+- **Students and teachers** who handle large reading material
+- **Travelers** who want lightweight access to many books
+- **Night readers** who need eye comfort
 
 If reading is more than an occasional hobby for you, this device quickly becomes worth the investment.
 
@@ -75,4 +75,3 @@ The Kindle Paperwhite is not just a gadget—it’s a reading companion. It resp
 For anyone serious about reading, learning, or simply enjoying books without distraction, the Kindle Paperwhite remains one of the best choices available.
 
 ---
-
