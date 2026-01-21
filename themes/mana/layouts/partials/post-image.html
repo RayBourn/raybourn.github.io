@@ -6,7 +6,7 @@
   <div class="post-image">
     <a href="{{ .RelPermalink }}" onclick="event.stopPropagation();" aria-label="Read {{ .Title }}">
       <img
-        src="{{ if $imageResource }}{{ $imageResource.RelPermalink }}{{ else }}{{ $image | relURL }}{{ end }}"
+        src="{{ if $imageResource }}{{ $imageResource.RelPermalink }}{{ else if or (strings.HasPrefix $image "http://") (strings.HasPrefix $image "https://") }}{{ $image | safeURL }}{{ else }}{{ $image | relURL }}{{ end }}"
         alt="{{ if .Description }}
           {{ .Description }}
         {{ else }}

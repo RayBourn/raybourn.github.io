@@ -11,6 +11,9 @@
 {{ $imageResource := false }}
 
 {{ if $image }}
+  {{ if or (strings.HasPrefix $image "http://") (strings.HasPrefix $image "https://") }}
+    {{/* Remote URL, do not resolve as resource */}}
+  {{ else }}
   {{/* Try to resolve as page resource first (content folder) */}}
   {{ $imageResource = .Resources.Get $image }}
   {{ if not $imageResource }}
@@ -20,6 +23,7 @@
   {{/* If not found as page resource, try as asset resource (assets folder) */}}
   {{ if not $imageResource }}
     {{ $imageResource = resources.Get $image }}
+  {{ end }}
   {{ end }}
 {{ else }}
   {{/* Auto-discovery: try to find image based on title */}}

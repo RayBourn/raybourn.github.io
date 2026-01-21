@@ -123,3 +123,13 @@ article iframe,
   max-width: 100% !important;
   height: auto !important;
 }
+
+/* Style for image captions */
+figcaption {
+  text-align: center;    /* Centers the text */
+  font-size: 0.85rem;    /* Makes it smaller than article text */
+  font-style: italic;    /* Makes it italic */
+  color: #666;           /* Makes it a softer grey color */
+  margin-top: 8px;       /* Adds a little space below the image */
+  line-height: 1.4;      /* Makes it look cleaner */
+}

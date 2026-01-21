@@ -5,7 +5,7 @@
 {{ if $image }}
   <div class="post-image-single">
     <img
-      src="{{ if $imageResource }}{{ $imageResource.RelPermalink }}{{ else }}{{ $image | relURL }}{{ end }}"
+      src="{{ if $imageResource }}{{ $imageResource.RelPermalink }}{{ else if or (strings.HasPrefix $image "http://") (strings.HasPrefix $image "https://") }}{{ $image | safeURL }}{{ else }}{{ $image | relURL }}{{ end }}"
       alt="{{ if .Description }}
         {{ .Description }}
       {{ else }}

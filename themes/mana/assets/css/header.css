@@ -197,5 +197,5 @@
 
 /* Prevent content jump */
 body {
-  padding-top: 72px; /* adjust to header height */
+  padding-top: 75px; /* adjust to header height */
 }
