@@ -12,7 +12,7 @@
     <!-- Tag cloud -->
     <div class="tags-cloud">
       <div class="tags-list">
-        {{ range .Data.Terms.ByCount }}
+        {{ range site.Taxonomies.tags.ByCount }}
           <a href="{{ .Page.RelPermalink }}" class="tag-item">
             <div class="tag-chip-large">
               <span class="tag-name">{{ .Page.Title }}</span>

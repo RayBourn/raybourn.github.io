@@ -2,9 +2,9 @@
 title = "An Experiment That Rewrote the Future of Behaviour"
 description = "How we can A"
 image = 'https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/skinner_box.webp'
-date = "2026-01-21"
+date = "2026-01-22"
 draft = false
-author = "Parminder Singh Rana"
+author = "Parminder Singh"
 tags = ["Psychology", "Experiment", "Behaviour"]
 +++
 

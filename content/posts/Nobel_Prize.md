@@ -5,7 +5,7 @@ image = 'https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/nobel_prize
 date = "2025-10-08"
 draft = false
 author = "Parminder Singh"
-tags = ["Science", "Discovery"]
+tags = ["Science", "Discovery","Physics"]
 +++
 
 Every year, the Nobel Foundation awards Nobel Prizes. It covers six fields:
