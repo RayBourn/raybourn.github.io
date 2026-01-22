@@ -267,7 +267,7 @@
 }
 
 .post-content-main {
-  font-size: 1.1rem;
+  font-size: 1.0rem;
   line-height: 1.5;
   color: var(--text-primary);
   overflow-wrap: break-word;
@@ -275,6 +275,7 @@
   max-width: 100%;
   width: 100%;
   box-sizing: border-box;
+  padding: 0 0.5rem;
 }
 
 .post-content-main h2 {

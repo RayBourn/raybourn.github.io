@@ -11,7 +11,7 @@
 
 .posts-title {
   font-size: 1.5rem;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: var(--spacing-lg);
   color: var(--text-primary);
 }
@@ -78,7 +78,7 @@
 
 .post-title {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
 }
 
