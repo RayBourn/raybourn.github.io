@@ -5,7 +5,7 @@ draft = false
 author = "Parminder Singh"
 image = 'https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/wager%201.webp'
 description = "A voyage of survival that changed the lives of men"
-tags = ["History", "Book"]
+tags = ["History", "Books"]
 +++
 
 One day, I was reading an article on medium. it takes less than a minute to make
