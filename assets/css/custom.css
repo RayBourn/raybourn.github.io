@@ -133,3 +133,12 @@ figcaption {
   margin-top: 8px;       /* Adds a little space below the image */
   line-height: 1.4;      /* Makes it look cleaner */
 }
+
+.article-content p {
+  margin-bottom: 1.5rem;
+}
+
+.article-content h2 {
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}

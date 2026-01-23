@@ -12,6 +12,7 @@ One day, I was reading an article on medium. it takes less than a minute to make
 me stumble upon a book that seems very interesting. I never read a genre like
 this before. As i am living in a landlocked area far from the sea, it set me on
 a seafaring reverie.
+
 {{< figure src="https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/wager.webp" caption="Book cover" >}}
 
 This story begins in secrecy and conflict. A man-of-war ship carrying 250 men on
@@ -33,6 +34,7 @@ South America where two oceans, the Atlantic and Pacific, meet to create roaring
 storms, winds, and rain. It is the most dangerous passage to cross.
 
 {{< figure src="https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/wager%201.webp" caption="illustration of ship" >}}
+
 During the passage, the huge storm battered the ship. Also, scurvy raged on the
 ship. Men died in quick succession. In the midst of a furious storm, HMS Wager
 fell behind and eventually lost the squadron. In May 1741, the ship struck rocks
