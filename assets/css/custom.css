@@ -142,3 +142,14 @@ figcaption {
   margin-top: 3rem;
   margin-bottom: 1.5rem;
 }
+
+/* quote box shadow */
+blockquote {
+  background: #ffffff;
+  padding: 1.4rem 1.6rem;
+  margin: 2rem 0;
+
+  border-left: 3px solid #999;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border-radius: 8px;
+}
