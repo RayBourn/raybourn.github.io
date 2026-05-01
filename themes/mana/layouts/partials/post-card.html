@@ -30,6 +30,6 @@
     {{ partial "post-meta-inline.html" $page }}
   
   <!-- blocks tags on home page screen -->
-    <!-- {{ partial "post-tags-inline.html" (dict "Params" $page.Params "limit" $limit) }} -->
+    {{ partial "post-tags-inline.html" (dict "Params" $page.Params "limit" $limit) }}
   </div>
 </article>

@@ -1,54 +1,58 @@
 +++
-date = '2026-01-09T18:23:38+05:30'
-draft = false
-title = 'About'
-+++
-
-
-
-+++
-
 title = "About Me"
-
 date = "2025-01-09"
-
 +++
 
+# Hi, I’m Parminder S Rana 👋
 
+I’m a curious learner, educator and lifelong student of human behavior.  
+This space is where I think, reflect, and grow — one idea at a time.
 
-\# Hi, I'm Ray 👋
+---
 
+## 🌱 What I Do
 
+I explore topics around:
 
-Welcome to my blog! I write about habits, learning, and personal growth.
+- Habits & discipline
+- Learning & mindset
+- Psychology & behavior
+- Personal growth
+- Science & Technology
 
+I believe small, consistent actions shape a meaningful life.
 
+---
 
-\## What I Do
+## ✍️ Why This Blog?
 
+This blog is my **digital notebook**.
 
+Here, I:
 
-I'm passionate about self-improvement and sharing what I learn.
+- Break down ideas I’m learning
+- Share insights from books and experiences
+- Document my journey of becoming better every day
 
+If something here helps you think differently or improve even a little — it has
+done its job.
 
+---
 
-\## Why This Blog?
+## 🎯 My Philosophy
 
+> “Growth is not about being perfect — it’s about being better than yesterday.”
 
+---
 
-This blog is my way of documenting my journey and hopefully helping others along the way.
+## 🤝 Let’s Connect
 
+I’m always open to meaningful conversations, ideas, and collaborations.
 
+---
 
-\## Get in Touch
+## 🙌 Final Note
 
-
-
-Feel free to reach out via:
-
-\- Email: your.email@example.com
-
-\- Twitter: @yourusername
-
-\- GitHub: yourusername
-
+Thanks for being here.  
+If you’re someone who values learning, reflection, and growth — you’re in the
+right place.
