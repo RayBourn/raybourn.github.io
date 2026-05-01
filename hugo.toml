@@ -97,3 +97,4 @@ customCSS = ["css/custom.css"]
     inputPosition = "bottom"
     theme = "preferred_color_scheme"
     lang = "en"
+    
