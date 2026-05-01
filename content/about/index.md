@@ -3,14 +3,14 @@ title = "About Me"
 date = "2025-01-09"
 +++
 
-# Hi, I’m Parminder S Rana 👋
+## Hi,<br>I’m Parminder S Rana
 
 I’m a curious learner, educator and lifelong student of human behavior.  
 This space is where I think, reflect, and grow — one idea at a time.
 
 ---
 
-## 🌱 What I Do
+## What I Do
 
 I explore topics around:
 
@@ -24,35 +24,17 @@ I believe small, consistent actions shape a meaningful life.
 
 ---
 
-## ✍️ Why This Blog?
+## Let’s Connect
 
-This blog is my **digital notebook**.
-
-Here, I:
-
-- Break down ideas I’m learning
-- Share insights from books and experiences
-- Document my journey of becoming better every day
-
-If something here helps you think differently or improve even a little — it has
-done its job.
+I’m always open to meaningful conversations, ideas and collaborations.
 
 ---
 
-## 🎯 My Philosophy
-
-> “Growth is not about being perfect — it’s about being better than yesterday.”
-
----
-
-## 🤝 Let’s Connect
-
-I’m always open to meaningful conversations, ideas, and collaborations.
-
----
-
-## 🙌 Final Note
-
+<br>
 Thanks for being here.  
 If you’re someone who values learning, reflection, and growth — you’re in the
-right place.
+right place.<br>
+
+<div style="text-align: center;">
+♥️
+</div>

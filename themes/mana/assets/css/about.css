@@ -59,6 +59,22 @@
   margin-bottom: var(--spacing-md);
 }
 
+.about-content-full ul,
+.about-content-full ol {
+  margin-bottom: var(--spacing-md);
+  padding-left: 1.5em;
+  list-style-type: disc;
+}
+
+.about-content-full ol {
+  list-style-type: decimal;
+}
+
+.about-content-full li {
+  margin-bottom: 0.5em;
+  line-height: 1.8;
+}
+
 .about-content-full a {
   color: var(--accent-primary);
   text-decoration: underline;
