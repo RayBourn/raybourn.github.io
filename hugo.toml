@@ -83,3 +83,12 @@ buildFuture = true
   [[related.indices]]
     name = 'date'
     weight = 10
+
+# ==============================================================================
+# MARKDOWN & HTML RENDERING
+# ==============================================================================
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
