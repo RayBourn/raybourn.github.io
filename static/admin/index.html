@@ -4,25 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Content Manager | Field Notes</title>
-  <script>
-    // Polyfill crypto.randomUUID for non-secure HTTP contexts (e.g. local IP network testing)
-    if (typeof window !== 'undefined') {
-      if (!window.crypto) {
-        window.crypto = {};
-      }
-      if (!window.crypto.randomUUID) {
-        window.crypto.randomUUID = function getRandomUUID() {
-          return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, function (c) {
-            var r = (window.crypto.getRandomValues ? window.crypto.getRandomValues(new Uint8Array(1))[0] : Math.floor(Math.random() * 16));
-            return (c ^ (r & (15 >> (c / 4)))).toString(16);
-          });
-        };
-      }
-    }
-  </script>
+  <link rel="cms-config-url" type="text/yaml" href="config.yml" />
 </head>
 <body>
-  <!-- Include the script that builds the page and powers Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@3.3.3/dist/decap-cms.js"></script>
+  <!-- Sveltia CMS: Lightweight, modern replacement for Decap/Netlify CMS -->
+  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </body>
 </html>

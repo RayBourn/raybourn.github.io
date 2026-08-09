@@ -2,9 +2,6 @@ backend:
   name: github
   repo: RayBourn/raybourn.github.io
   branch: main
-  site_domain: wondrous-cendol-1c64bb.netlify.app
-
-local_backend: true
 
 media_folder: "assets/images"
 public_folder: "images"
