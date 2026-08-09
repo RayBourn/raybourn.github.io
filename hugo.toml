@@ -4,6 +4,7 @@ title = 'Field Notes'
 theme = 'field-notes'
 paginate = 12
 enableRobotsTXT = true
+buildFuture = true
 
 [outputFormats.JSON]
   mediaType = 'application/json'
