@@ -6,6 +6,8 @@ backend:
 media_folder: "assets/images"
 public_folder: "images"
 
+format: "yaml-frontmatter"
+
 collections:
   - name: "books"
     label: "Books"
