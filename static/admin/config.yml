@@ -1,0 +1,110 @@
+backend:
+  name: github
+  repo: RayBourn/raybourn.github.io
+  branch: main
+
+media_folder: "assets/images"
+public_folder: "images"
+
+collections:
+  - name: "books"
+    label: "Books"
+    folder: "content/books"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Author", name: "author", widget: "string", default: "prana" }
+      - { label: "Book Author", name: "book_author", widget: "string", required: false }
+      - { label: "Categories", name: "categories", widget: "list", default: ["books"] }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "life"
+    label: "Life Essays"
+    folder: "content/life"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Author", name: "author", widget: "string", default: "prana" }
+      - { label: "Categories", name: "categories", widget: "list", default: ["life"] }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "science"
+    label: "Science Essays"
+    folder: "content/science"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Author", name: "author", widget: "string", default: "prana" }
+      - { label: "Categories", name: "categories", widget: "list", default: ["science"] }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "tech"
+    label: "Tech Essays"
+    folder: "content/tech"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Author", name: "author", widget: "string", default: "prana" }
+      - { label: "Categories", name: "categories", widget: "list", default: ["tech"] }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "nature"
+    label: "Nature Essays"
+    folder: "content/nature"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Author", name: "author", widget: "string", default: "prana" }
+      - { label: "Categories", name: "categories", widget: "list", default: ["nature"] }
+      - { label: "Tags", name: "tags", widget: "list" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "content/about.md"
+        label: "About Page"
+        name: "about"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
+      - file: "content/contact.md"
+        label: "Contact Page"
+        name: "contact"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Date", name: "date", widget: "datetime" }
+          - { label: "Draft", name: "draft", widget: "boolean", default: false }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Body", name: "body", widget: "markdown" }
