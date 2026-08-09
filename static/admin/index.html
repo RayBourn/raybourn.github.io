@@ -9,5 +9,50 @@
 <body>
   <!-- Sveltia CMS: Lightweight, modern replacement for Decap/Netlify CMS -->
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+  <script>
+    // Register custom "Floating Image" component for Sveltia CMS Markdown Editor
+    if (window.CMS) {
+      CMS.registerEditorComponent({
+        id: "floating-image",
+        label: "Floating Image",
+        fields: [
+          { name: "src", label: "Image (URL or Upload)", widget: "image" },
+          { name: "alt", label: "Alt Text", widget: "string" },
+          {
+            name: "side",
+            label: "Float Position",
+            widget: "select",
+            options: [
+              { label: "Right (Default)", value: "right" },
+              { label: "Left", value: "left" }
+            ],
+            default: "right"
+          },
+          { name: "width", label: "Width (e.g. 40% or 300px)", widget: "string", default: "40%" }
+        ],
+        pattern: /^<img src="([^"]+)" alt="([^"]*)" style="float:\s*(left|right);\s*width:\s*([^;]+);[^"]*"\/?>$/,
+        fromBlock: function(match) {
+          return {
+            src: match[1],
+            alt: match[2],
+            side: match[3],
+            width: match[4]
+          };
+        },
+        toBlock: function(obj) {
+          var side = obj.side || 'right';
+          var width = obj.width || '40%';
+          var margin = side === 'left' ? '0 1.5rem 1rem 0' : '0 0 1rem 1.5rem';
+          return `<img src="${obj.src || ''}" alt="${obj.alt || ''}" style="float:${side}; width:${width}; margin:${margin};">`;
+        },
+        toPreview: function(obj) {
+          var side = obj.side || 'right';
+          var width = obj.width || '40%';
+          var margin = side === 'left' ? '0 1.5rem 1rem 0' : '0 0 1rem 1.5rem';
+          return `<img src="${obj.src || ''}" alt="${obj.alt || ''}" style="float:${side}; width:${width}; margin:${margin};">`;
+        }
+      });
+    }
+  </script>
 </body>
 </html>
