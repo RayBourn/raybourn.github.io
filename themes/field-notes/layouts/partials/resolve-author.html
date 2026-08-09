@@ -1,0 +1,55 @@
+{{ $authorKey := "" }}
+{{ if reflect.IsMap . }}
+  {{ $authorKey = .authorKey | default "" }}
+  {{ if not $authorKey }}
+    {{ with .page }}
+      {{ with .Params.author_key }}
+        {{ $authorKey = . }}
+      {{ else }}
+        {{ with .Params.author }}
+          {{ if reflect.IsSlice . }}{{ $authorKey = index . 0 }}{{ else }}{{ $authorKey = . }}{{ end }}
+        {{ else }}
+          {{ with .Params.authors }}
+            {{ if reflect.IsSlice . }}{{ $authorKey = index . 0 }}{{ else }}{{ $authorKey = . }}{{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ else if reflect.IsSlice . }}
+  {{ $authorKey = index . 0 }}
+{{ else if . }}
+  {{ $authorKey = . }}
+{{ end }}
+
+{{ if not $authorKey }}
+  {{ $authorKey = site.Params.author_key | default "prana" }}
+{{ end }}
+
+{{ $authorData := dict }}
+{{ $matchedKey := "" }}
+
+{{ with hugo.Data.authors }}
+  {{ if index . $authorKey }}
+    {{ $authorData = index . $authorKey }}
+    {{ $matchedKey = $authorKey }}
+  {{ else if index . ($authorKey | lower) }}
+    {{ $authorData = index . ($authorKey | lower) }}
+    {{ $matchedKey = ($authorKey | lower) }}
+  {{ else }}
+    {{ range $k, $v := . }}
+      {{ if or (eq $k $authorKey) (eq $v.name $authorKey) (eq ($v.name | lower) ($authorKey | lower)) (eq ($v.name | urlize) ($authorKey | urlize)) (and (eq $authorKey "prana") (eq $v.name "Parminder S Rana")) }}
+        {{ $authorData = $v }}
+        {{ $matchedKey = $k }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $authorSlug := ($matchedKey | default $authorKey) | urlize }}
+
+{{ if not $authorData }}
+  {{ $authorData = dict "name" (site.Params.author | default "Parminder S Rana") "role" "Writer & Editor" "avatar" "images/authors/author.jpg" "photo" "images/authors/author.jpg" "bio" site.Params.description }}
+{{ end }}
+
+{{ return (dict "key" ($matchedKey | default $authorKey) "slug" $authorSlug "data" $authorData) }}

@@ -1,0 +1,43 @@
+.featured-book-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.featured-book-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.featured-book-title {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(24px, 3.5vw, 32px);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.featured-book-title a {
+  color: var(--ink);
+  transition: color 0.15s ease;
+}
+
+.featured-book-title a:hover {
+  color: var(--clay);
+}
+
+.featured-book-summary {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 4px 0 16px;
+  max-width: 54ch;
+}
+
+.featured-book-action {
+  display: flex;
+  align-items: center;
+}

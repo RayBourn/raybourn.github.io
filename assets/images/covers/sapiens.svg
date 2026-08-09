@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <rect width="400" height="600" fill="#E5B842"/>
+  <rect x="15" y="15" width="370" height="570" fill="none" stroke="#222222" stroke-width="2"/>
+  <text x="200" y="70" font-family="'Fraunces', 'Times New Roman', serif" font-size="16" font-weight="600" fill="#222222" text-anchor="middle" letter-spacing="4">NEW YORK TIMES BESTSELLER</text>
+  <text x="200" y="150" font-family="'Fraunces', 'Times New Roman', serif" font-size="52" font-weight="700" fill="#111111" text-anchor="middle" letter-spacing="2">SAPIENS</text>
+  <line x1="120" y1="175" x2="280" y2="175" stroke="#111111" stroke-width="2"/>
+  <text x="200" y="205" font-family="'Inter', sans-serif" font-size="16" font-style="italic" fill="#222222" text-anchor="middle" letter-spacing="1">A Brief History of Humankind</text>
+  
+  <!-- Handprint / Human Evolution Icon -->
+  <g transform="translate(200, 360) scale(1.4)">
+    <circle cx="0" cy="0" r="65" fill="#111111"/>
+    <path d="M-15,20 C-20,0 -30,-20 -25,-40 C-22,-48 -14,-45 -14,-35 C-14,-15 -5,10 -5,25 Z" fill="#E5B842"/>
+    <path d="M-5,25 C-8,0 -12,-35 -5,-50 C-2,-56 5,-52 4,-42 C2,-20 5,10 5,25 Z" fill="#E5B842"/>
+    <path d="M5,25 C7,5 10,-30 18,-45 C22,-50 28,-45 25,-38 C18,-20 15,10 15,25 Z" fill="#E5B842"/>
+    <path d="M15,25 C20,10 30,-15 38,-28 C42,-32 47,-28 43,-22 C35,-5 25,15 22,25 Z" fill="#E5B842"/>
+    <path d="M-20,25 C-30,15 -42,0 -48,-8 C-52,-13 -56,-7 -50,0 C-40,12 -28,24 -20,28 Z" fill="#E5B842"/>
+  </g>
+  
+  <text x="200" y="520" font-family="'Fraunces', 'Times New Roman', serif" font-size="24" font-weight="600" fill="#111111" text-anchor="middle">Yuval Noah Harari</text>
+</svg>

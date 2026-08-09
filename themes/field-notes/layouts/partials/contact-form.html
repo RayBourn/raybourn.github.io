@@ -1,0 +1,56 @@
+{{ $endpoint := .Site.Params.contactFormEndpoint | default "" }}
+{{ $turnstileSiteKey := .Site.Params.turnstileSiteKey | default "" }}
+
+{{/* Cloudflare Turnstile script tag */}}
+{{ if $turnstileSiteKey }}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+{{ end }}
+
+<form 
+  id="contact-form" 
+  class="contact-form" 
+  action="{{ $endpoint }}" 
+  method="POST"
+  data-form-endpoint="{{ $endpoint }}"
+  aria-label="Contact form">
+  
+  {{/* 1. Honeypot field for bot detection: invisible to real users & screen readers */}}
+  <div style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;" aria-hidden="true">
+    <label for="contact-website">Website (Leave blank if human)</label>
+    <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+  </div>
+
+  {{/* 2. Time-based submission check field: rendered timestamp */}}
+  <input type="hidden" id="contact-form-time" name="form_time" value="">
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="contact-name">Name <span class="required-star" aria-hidden="true">*</span></label>
+      <input type="text" id="contact-name" name="name" placeholder="Your name" required maxlength="100">
+    </div>
+    <div class="form-group">
+      <label for="contact-email">Email <span class="required-star" aria-hidden="true">*</span></label>
+      <input type="email" id="contact-email" name="email" placeholder="your@email.com" required>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="contact-message">Message <span class="required-star" aria-hidden="true">*</span></label>
+    <textarea id="contact-message" name="message" rows="4" placeholder="Write your note here..." required maxlength="5000"></textarea>
+  </div>
+
+  {{/* 5. Cloudflare Turnstile Widget (rendered if turnstileSiteKey parameter is configured) */}}
+  {{ if $turnstileSiteKey }}
+  <div class="form-group turnstile-container" style="margin-top: 12px; margin-bottom: 12px;">
+    <div class="cf-turnstile" data-sitekey="{{ $turnstileSiteKey }}" data-theme="auto"></div>
+  </div>
+  {{ end }}
+
+  <div id="contact-form-feedback" class="contact-feedback-msg" aria-live="polite" style="display: none;"></div>
+
+  <div class="form-actions">
+    <button type="submit" class="contact-submit-btn" id="contact-submit-btn">
+      <span class="btn-text">Send Message →</span>
+    </button>
+  </div>
+</form>

@@ -1,0 +1,25 @@
+:root {
+  --paper: #F6F1E9;
+  --card: #EDE4D3;
+  --ink: #181614;
+  --ink-soft: #3A352F;
+  --clay: #C1502E;
+  --moss: #2E5941;
+  --slate: #55606B;
+  --line: rgba(24, 22, 20, 0.12);
+
+  /* Specific Topic Colors */
+  --topic-life: var(--clay);
+  --topic-nature: var(--moss);
+  --topic-tech: var(--slate);
+  --topic-science: #8A6D3B;
+  --topic-books: #6B4E71;
+}
+
+[data-theme="dark"] {
+  --paper: #161513;
+  --card: #23201C;
+  --ink: #F4EFE6;
+  --ink-soft: #C7C0B3;
+  --line: rgba(244, 239, 230, 0.14);
+}

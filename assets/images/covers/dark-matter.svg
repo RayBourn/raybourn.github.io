@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <rect width="400" height="600" fill="#0B0E14"/>
+  <rect x="20" y="20" width="360" height="560" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  
+  <text x="200" y="80" font-family="'JetBrains Mono', monospace" font-size="12" fill="#64B5F6" text-anchor="middle" letter-spacing="4">THE SUNDAY TIMES BESTSELLER</text>
+  <text x="200" y="150" font-family="'Fraunces', serif" font-size="44" font-weight="700" fill="#FFFFFF" text-anchor="middle" letter-spacing="3">DARK</text>
+  <text x="200" y="200" font-family="'Fraunces', serif" font-size="44" font-weight="700" fill="#64B5F6" text-anchor="middle" letter-spacing="3">MATTER</text>
+  
+  <!-- Quantum Hypercube Graphic -->
+  <g transform="translate(200, 350)" stroke="#64B5F6" stroke-width="1.5" fill="none">
+    <polygon points="-60,-60 60,-60 60,60 -60,60" stroke-opacity="0.8"/>
+    <polygon points="-30,-30 30,-30 30,30 -30,30" stroke-opacity="0.9" fill="#0B0E14"/>
+    <line x1="-60" y1="-60" x2="-30" y2="-30"/>
+    <line x1="60" y1="-60" x2="30" y2="-30"/>
+    <line x1="60" y1="60" x2="30" y2="30"/>
+    <line x1="-60" y1="60" x2="-30" y2="30"/>
+    
+    <polygon points="-90,-90 90,-90 90,90 -90,90" stroke-opacity="0.3"/>
+    <line x1="-90" y1="-90" x2="-60" y2="-60" stroke-dasharray="3 3"/>
+    <line x1="90" y1="-90" x2="60" y2="-60" stroke-dasharray="3 3"/>
+    <line x1="90" y1="90" x2="60" y2="60" stroke-dasharray="3 3"/>
+    <line x1="-90" y1="90" x2="-60" y2="60" stroke-dasharray="3 3"/>
+  </g>
+  
+  <text x="200" y="490" font-family="'JetBrains Mono', monospace" font-size="14" fill="#E0E0E0" text-anchor="middle" letter-spacing="2">A NOVEL BY</text>
+  <text x="200" y="530" font-family="'Fraunces', serif" font-size="28" font-weight="600" fill="#FFFFFF" text-anchor="middle">BLAKE CROUCH</text>
+</svg>

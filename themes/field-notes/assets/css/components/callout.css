@@ -1,0 +1,101 @@
+/* ---------- CALLOUT / NEWSLETTER ---------- */
+.callout {
+  background: #181614;
+  color: #F6F1E9;
+  border-radius: 6px;
+  padding: clamp(32px, 5vw, 48px);
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: clamp(24px, 4vw, 40px);
+  align-items: center;
+  margin-top: clamp(40px, 5vw, 56px);
+  margin-bottom: clamp(40px, 5vw, 56px);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+[data-theme="dark"] .callout {
+  background: #1C1A17;
+  color: var(--ink);
+  border-color: var(--line);
+}
+.callout::before {
+  content: '';
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(193,80,46,0.25), transparent 70%);
+}
+.callout .k {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #E8DFCF;
+  opacity: 0.8;
+  margin-bottom: 14px;
+  display: block;
+}
+[data-theme="dark"] .callout .k {
+  color: var(--clay);
+  opacity: 1;
+}
+.callout h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(22px, 3.5vw, 28px);
+  line-height: 1.25;
+  margin: 0 0 14px;
+  max-width: 20ch;
+  color: #F6F1E9;
+}
+[data-theme="dark"] .callout h3 {
+  color: var(--ink);
+}
+.callout p { font-size: 14.5px; line-height: 1.6; color: #C9C2B4; margin: 0; max-width: 42ch; }
+[data-theme="dark"] .callout p { color: var(--ink-soft); }
+
+.callout-form {
+  display: flex;
+  gap: 10px;
+}
+.callout-form input {
+  flex: 1;
+  min-height: 44px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 6px;
+  padding: 12px 18px;
+  color: #F6F1E9;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+[data-theme="dark"] .callout-form input {
+  background: rgba(255,255,255,0.05);
+  border-color: var(--line);
+  color: var(--ink);
+}
+.callout-form input::placeholder { color: #8A8378; }
+.callout-form button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13.5px;
+  color: #F6F1E9;
+  background: transparent;
+  border: 1px solid #F6F1E9;
+  min-height: 44px;
+  border-radius: 6px;
+  padding: 10px 22px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.callout-form button:hover,
+.callout-form button:focus-visible {
+  background: #F6F1E9;
+  color: #181614;
+  border-color: #F6F1E9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}

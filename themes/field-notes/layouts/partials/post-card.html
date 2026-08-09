@@ -1,0 +1,50 @@
+{{ $topic := .Section }}
+{{ with .Params.categories }}
+  {{ $topic = index . 0 | lower }}
+{{ end }}
+<a class="card t-{{ $topic }}" href="{{ .RelPermalink }}">
+  <div class="card-img">
+    {{ $coverPath := .Params.cover | default .Params.image }}
+    {{ with $coverPath }}
+      {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+        <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy" style="aspect-ratio: 16/9; object-fit: cover;">
+      {{ else }}
+        {{ $img := resources.Get . }}
+        {{ if not $img }}
+          {{ $img = $.Resources.GetMatch . }}
+        {{ end }}
+        {{ if and $img (ne $img.MediaType.SubType "svg") }}
+          {{ $img400 := $img.Resize "400x webp" }}
+          {{ $img600 := $img.Resize "600x webp" }}
+          {{ $img900 := $img.Resize "900x webp" }}
+          <img 
+            src="{{ $img600.RelPermalink }}" 
+            srcset="{{ $img400.RelPermalink }} 400w, {{ $img600.RelPermalink }} 600w, {{ $img900.RelPermalink }} 900w"
+            sizes="(max-width: 640px) 100vw, (max-width: 900px) 50vw, 33vw"
+            alt="{{ $.Title }}" 
+            loading="lazy" 
+            width="{{ $img600.Width }}" 
+            height="{{ $img600.Height }}"
+            style="aspect-ratio: 16/9; object-fit: cover;">
+        {{ else if $img }}
+          <img 
+            src="{{ $img.RelPermalink }}" 
+            alt="{{ $.Title }}" 
+            loading="lazy"
+            style="aspect-ratio: 16/9; object-fit: cover;">
+        {{ else }}
+          <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy" style="aspect-ratio: 16/9; object-fit: cover;">
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </div>
+  <div class="card-body">
+    {{ partial "meta-strip.html" . }}
+    <h3>{{ .Title }}</h3>
+    <p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify | truncate 130 }}{{ end }}</p>
+    <div class="card-footer-row">
+      {{ partial "author-mini.html" . }}
+      <span class="read-more">Read the piece <span class="arrow" aria-hidden="true">→</span></span>
+    </div>
+  </div>
+</a>

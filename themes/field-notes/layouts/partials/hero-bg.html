@@ -1,0 +1,33 @@
+{{ $heroImgPath := or .Params.hero_image site.Params.hero_image }}
+{{ if $heroImgPath }}
+  {{ $img := resources.Get $heroImgPath }}
+  {{ if not $img }}
+    {{ $img = $.Resources.GetMatch $heroImgPath }}
+  {{ end }}
+  {{ if and $img (ne $img.MediaType.SubType "svg") }}
+    {{ $resized := $img.Resize "1920x webp" }}
+    <img 
+      src="{{ $resized.RelPermalink }}" 
+      alt="" 
+      class="hero-bg-img" 
+      loading="eager" 
+      width="{{ $resized.Width }}" 
+      height="{{ $resized.Height }}"
+      aria-hidden="true">
+  {{ else if $img }}
+    <img 
+      src="{{ $img.RelPermalink }}" 
+      alt="" 
+      class="hero-bg-img" 
+      loading="eager" 
+      aria-hidden="true">
+  {{ else }}
+    <img 
+      src="{{ $heroImgPath | relURL }}" 
+      alt="" 
+      class="hero-bg-img" 
+      loading="eager" 
+      aria-hidden="true">
+  {{ end }}
+  <div class="hero-overlay" aria-hidden="true"></div>
+{{ end }}

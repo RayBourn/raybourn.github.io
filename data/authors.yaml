@@ -1,0 +1,39 @@
+prana:
+  name: "Parminder S Rana"
+  avatar: "images/authors/author.jpg"
+  bio: "Writing on nature, technology, books, and daily maintenance. Observing urban wildlife and building minimalist tools."
+  role: "Writer & Editor"
+  social:
+    twitter: "https://twitter.com/prana"
+    linkedin: "https://linkedin.com/in/prana"
+    website: "https://example.org"
+
+"Parminder S Rana":
+  name: "Parminder S Rana"
+  avatar: "images/authors/author.jpg"
+  bio: "Writing on nature, technology, books, and daily maintenance. Observing urban wildlife and building minimalist tools."
+  role: "Writer & Editor"
+  social:
+    twitter: "https://twitter.com/prana"
+    linkedin: "https://linkedin.com/in/prana"
+    website: "https://example.org"
+
+"Jane Smith":
+  name: "Jane Smith"
+  avatar: "images/authors/jsmith.jpg"
+  bio: "Essays on botanical systems, quiet routines, and micro-histories."
+  role: "Senior Contributor"
+  social:
+    twitter: "https://twitter.com/jsmith"
+    linkedin: "https://linkedin.com/in/jsmith"
+    website: "https://janesmith.com"
+
+"Alex Dowe":
+  name: "Alex Dowe"
+  avatar: "images/authors/adowe.jpg"
+  bio: "Observing urban wildlife, digital sabbaticals, and systems architecture."
+  role: "Contributor"
+  social:
+    instagram: "https://instagram.com/adowe"
+    twitter: "https://twitter.com/adowe"
+    linkedin: "https://linkedin.com/in/adowe"

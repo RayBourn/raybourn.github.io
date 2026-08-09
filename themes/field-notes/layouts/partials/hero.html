@@ -1,0 +1,10 @@
+<section class="hero">
+  {{ partial "hero-bg.html" . }}
+  <div class="wrap">
+    {{ with site.Params.eyebrow }}
+      <span class="eyebrow" style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--clay); text-transform: uppercase; letter-spacing: 0.08em; display: inline-block; margin-bottom: 12px; font-weight: 600;">{{ . }}</span>
+    {{ end }}
+    <h1 class="headline">{{ site.Params.headline_html | safeHTML }}</h1>
+    <p class="sub">{{ site.Params.sub }}</p>
+  </div>
+</section>

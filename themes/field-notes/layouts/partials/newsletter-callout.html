@@ -1,0 +1,16 @@
+{{ $endpoint := .Site.Params.contactFormEndpoint | default "" }}
+<div class="callout" data-pagefind-ignore>
+  <div>
+    <span class="k">{{ .Site.Params.newsletter_k }}</span>
+    <h3>{{ .Site.Params.newsletter_title }}</h3>
+    <p>{{ .Site.Params.newsletter_sub }}</p>
+  </div>
+  <form id="newsletter-form" class="callout-form" action="{{ $endpoint }}" method="POST" data-form-endpoint="{{ $endpoint }}">
+    {{/* Honeypot field for bot protection */}}
+    <div style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; pointer-events: none;" aria-hidden="true">
+      <input type="text" id="newsletter-website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+    <input type="email" id="newsletter-email" name="email" placeholder="you@somewhere.com" required aria-label="Email address">
+    <button type="submit" id="newsletter-submit-btn">Subscribe</button>
+  </form>
+</div>

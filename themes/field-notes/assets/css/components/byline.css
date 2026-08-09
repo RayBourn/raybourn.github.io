@@ -1,0 +1,123 @@
+/* Author Byline Partial Styles */
+.author-byline {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+  margin-bottom: 0;
+  padding-top: 16px;
+  padding-bottom: 0;
+  border-top: 1px solid var(--line);
+}
+.byline-avatar-wrap {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+}
+.byline-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  display: block;
+}
+.byline-fallback-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+}
+.byline-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.byline-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  line-height: 1.3;
+}
+.byline-name {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.byline-name:hover {
+  color: var(--clay);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.byline-role {
+  font-size: 13px;
+  color: var(--slate);
+  font-weight: 400;
+}
+.byline-social {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+.byline-social a {
+  color: var(--slate);
+  transition: color 0.15s ease, transform 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  opacity: 0.85;
+}
+.byline-social a:hover {
+  color: var(--clay);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 400px) {
+  .author-byline {
+    gap: 10px;
+  }
+  .byline-avatar-wrap,
+  .byline-avatar,
+  .byline-fallback-avatar {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Compact Author Mini Byline (post-card grid) */
+.author-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+.author-mini-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  flex-shrink: 0;
+  display: block;
+}
+.author-mini-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--slate);
+  line-height: 1;
+}

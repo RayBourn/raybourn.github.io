@@ -1,0 +1,12 @@
+/* ---------- ANIMATION UTILITIES: PULSE RING ---------- */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(193, 80, 46, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(193, 80, 46, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(193, 80, 46, 0);
+  }
+}

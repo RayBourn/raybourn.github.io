@@ -1,0 +1,80 @@
+{{ $latest := . }}
+{{ if $latest }}
+  {{ $topic := $latest.Section }}
+  {{ with $latest.Params.categories }}
+    {{ $topic = index . 0 | lower }}
+  {{ end }}
+
+  <div class="latest-feed-section">
+    <div class="section-label latest-feed-label">
+      <h2>
+        <span class="live-pulse-dot"></span>
+        Latest Article
+      </h2>
+      <span class="count">Fresh off the desk</span>
+    </div>
+
+    <article class="latest-feed-card animated-border-card">
+      <div class="latest-feed-inner">
+        <div class="latest-feed-content">
+          <div class="latest-feed-meta">
+            <span class="latest-feed-topic t-{{ $topic }}">
+              <span class="topic-dot"></span>{{ $topic }}
+            </span>
+            <span class="meta-sep">•</span>
+            <time class="latest-feed-date">{{ $latest.Date.Format "January 02, 2006" }}</time>
+            {{ with $latest.ReadingTime }}
+              <span class="meta-sep">•</span>
+              <span class="latest-feed-read">{{ . }} min read</span>
+            {{ end }}
+          </div>
+
+          <h2 class="latest-feed-title">
+            <a href="{{ $latest.RelPermalink }}">{{ $latest.Title }}</a>
+          </h2>
+
+          <p class="latest-feed-summary">
+            {{ with $latest.Params.summary }}{{ . }}{{ else }}{{ $latest.Summary | plainify | truncate 180 }}{{ end }}
+          </p>
+
+          <div class="latest-feed-footer">
+            <a href="{{ $latest.RelPermalink }}" class="latest-feed-btn">
+              Read full essay <span class="arrow">→</span>
+            </a>
+            {{ $resolvedAuthor := partial "resolve-author.html" (dict "page" $latest) }}
+            {{ $authorName := $resolvedAuthor.data.name }}
+            <span class="latest-feed-author">by {{ $authorName }}</span>
+          </div>
+        </div>
+
+        {{ $latestCover := $latest.Params.cover | default $latest.Params.image }}
+        {{ with $latestCover }}
+          <a href="{{ $latest.RelPermalink }}" class="latest-feed-img-link">
+            {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+              <img src="{{ . }}" alt="{{ $latest.Title }}" loading="eager" style="object-fit: cover;">
+            {{ else }}
+              {{ $img := resources.Get . }}
+              {{ if not $img }}
+                {{ $img = $latest.Resources.GetMatch . }}
+              {{ end }}
+              {{ if and $img (ne $img.MediaType.SubType "svg") }}
+                {{ $img700 := $img.Resize "700x webp" }}
+                {{ $img1000 := $img.Resize "1000x webp" }}
+                <img 
+                  src="{{ $img700.RelPermalink }}" 
+                  srcset="{{ $img700.RelPermalink }} 700w, {{ $img1000.RelPermalink }} 1000w"
+                  sizes="(max-width: 640px) 100vw, 50vw"
+                  alt="{{ $latest.Title }}" 
+                  loading="eager">
+              {{ else if $img }}
+                <img src="{{ $img.RelPermalink }}" alt="{{ $latest.Title }}" loading="eager">
+              {{ else }}
+                <img src="{{ . | relURL }}" alt="{{ $latest.Title }}" loading="eager">
+              {{ end }}
+            {{ end }}
+          </a>
+        {{ end }}
+      </div>
+    </article>
+  </div>
+{{ end }}

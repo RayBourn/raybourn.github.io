@@ -1,0 +1,82 @@
+{{ define "main" }}
+
+<section class="hero">
+  {{ partial "hero-bg.html" . }}
+  <div class="wrap">
+    <h1 class="headline">Archive</h1>
+    <p class="sub">A complete chronological index of all essays, filed by month, year, subject, and topic tags.</p>
+  </div>
+</section>
+
+{{ $archiveSections := slice "life" "nature" "science" "tech" "books" }}
+{{ $allPosts := where .Site.RegularPages "Section" "in" $archiveSections }}
+{{ $maxPosts := .Site.Params.paginate | default 12 }}
+{{ $posts := $allPosts | first $maxPosts }}
+
+{{ $tagCounts := dict }}
+{{ range $allPosts }}
+  {{ with .Params.tags }}
+    {{ range . }}
+      {{ $t := . | lower }}
+      {{ $c := index $tagCounts $t | default 0 }}
+      {{ $tagCounts = merge $tagCounts (dict $t (add $c 1)) }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $sortedTags := slice }}
+{{ range $tag, $count := $tagCounts }}
+  {{ $sortedTags = $sortedTags | append (dict "Name" $tag "Count" $count "Slug" ($tag | urlize)) }}
+{{ end }}
+{{ $sortedTags = sort $sortedTags "Name" "asc" }}
+
+<div class="wrap">
+  {{/* Tag Filter Bar */}}
+  <div class="archive-tag-section">
+    <span class="archive-filter-label">Filter by Tag:</span>
+    <div class="archive-tag-filters" role="group" aria-label="Filter essays by tag">
+      <button class="tag-filter-btn active" data-tag="all">
+        All <span class="tag-count">({{ len $allPosts }})</span>
+      </button>
+      {{ range $sortedTags }}
+        <button class="tag-filter-btn" data-tag="{{ .Slug }}">
+          {{ .Name }} <span class="tag-count">({{ .Count }})</span>
+        </button>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="section-label">
+    <h2>All Entries</h2>
+  </div>
+
+  <div class="archive-list">
+    {{ range ($allPosts.GroupByDate "January 2006") }}
+      <div class="archive-year-group">
+        <h3 class="archive-month-title">
+          <span>{{ .Key }}</span>
+          <span class="archive-month-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}entry{{ else }}entries{{ end }}</span>
+        </h3>
+        <div class="archive-entries">
+          {{ range .Pages }}
+            {{ $topic := .Section }}
+            {{ with .Params.categories }}
+              {{ $topic = index . 0 | lower }}
+            {{ end }}
+            <a href="{{ .RelPermalink }}" class="archive-item-row archive-item" data-tags="{{ range .Params.tags }}{{ . | urlize }} {{ end }}">
+              <span class="archive-item-topic t-{{ $topic }}">{{ $topic }}</span>
+              <span class="archive-item-title">{{ .Title }}</span>
+              <time class="archive-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02" }}</time>
+            </a>
+          {{ end }}
+        </div>
+      </div>
+    {{ end }}
+  </div>
+
+  {{ partial "newsletter-callout.html" . }}
+</div>
+
+{{ end }}
+
+

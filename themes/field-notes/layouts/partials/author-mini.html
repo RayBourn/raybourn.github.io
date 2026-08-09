@@ -1,0 +1,14 @@
+{{ $resolved := partial "resolve-author.html" (dict "page" .) }}
+{{ $authorData := $resolved.data }}
+{{ $avatarPath := strings.TrimPrefix "/" ($authorData.avatar | default "images/authors/author.jpg") }}
+
+<div class="author-mini" data-pagefind-ignore>
+  {{ $img := resources.Get $avatarPath }}
+  {{ if $img }}
+    {{ $resized := $img.Resize "48x webp" }}
+    <img src="{{ $resized.RelPermalink }}" alt="{{ $authorData.name }}" class="author-mini-avatar" width="22" height="22" loading="lazy">
+  {{ else }}
+    <img src="{{ $avatarPath | relURL }}" alt="{{ $authorData.name }}" class="author-mini-avatar" width="22" height="22" loading="lazy">
+  {{ end }}
+  <span class="author-mini-name">{{ $authorData.name }}</span>
+</div>

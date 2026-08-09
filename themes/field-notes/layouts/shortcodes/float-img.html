@@ -1,0 +1,23 @@
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" | default "" }}
+{{ $caption := .Get "caption" }}
+{{ $side := .Get "side" | default "right" }}
+{{ $sideClass := cond (eq $side "left") "float-img-left" "float-img-right" }}
+
+<figure class="prose-float-img {{ $sideClass }}">
+  {{ $img := resources.Get $src }}
+  {{ if not $img }}
+    {{ $img = $.Page.Resources.GetMatch $src }}
+  {{ end }}
+  {{ if and $img (ne $img.MediaType.SubType "svg") }}
+    {{ $resized := $img.Resize "700x webp" }}
+    <img src="{{ $resized.RelPermalink }}" alt="{{ $alt }}" loading="lazy" width="{{ $resized.Width }}" height="{{ $resized.Height }}">
+  {{ else if $img }}
+    <img src="{{ $img.RelPermalink }}" alt="{{ $alt }}" loading="lazy">
+  {{ else }}
+    <img src="{{ $src | relURL }}" alt="{{ $alt }}" loading="lazy">
+  {{ end }}
+  {{ with $caption }}
+    <figcaption>{{ . }}</figcaption>
+  {{ end }}
+</figure>

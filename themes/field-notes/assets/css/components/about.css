@@ -1,0 +1,126 @@
+/* ---------- ABOUT PAGE REDESIGNED UI ---------- */
+.about-container {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.about-author-banner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 28px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.about-author-banner:hover {
+  border-color: var(--slate);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+.about-author-avatar {
+  flex-shrink: 0;
+}
+.about-author-avatar img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--line);
+  display: block;
+}
+.about-author-info {
+  flex: 1;
+}
+@media (max-width: 640px) {
+  .about-author-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
+  .about-author-avatar img {
+    width: 64px;
+    height: 64px;
+  }
+  .about-author-name {
+    font-size: 19px;
+  }
+  .about-author-bio {
+    font-size: 14px;
+  }
+}
+.about-author-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+.about-author-name {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.about-author-bio {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.55;
+  max-width: 65ch;
+}
+.about-prose {
+  max-width: 720px;
+  margin: 0 auto 40px;
+}
+.about-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 44px 0 20px 0;
+}
+.about-section-heading h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0;
+  white-space: nowrap;
+}
+.about-heading-line {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+.about-topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+.about-topic-card {
+  display: block;
+  padding: 18px 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.about-topic-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--slate);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+.about-topic-header {
+  margin-bottom: 8px;
+}
+.about-topic-desc {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  margin: 0;
+  line-height: 1.5;
+}

@@ -1,0 +1,103 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  (function() {
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  })();
+</script>
+<title>{{ if .IsHome }}{{ site.Title }} — {{ site.Params.site_tagline | default "a blog" }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+
+<meta name="description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}{{ end }}{{ end }}">
+<meta name="author" content="{{ site.Params.author }}">
+{{ with site.Params.keywords }}
+<meta name="keywords" content="{{ delimit . ", " }}">
+{{ end }}
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{/* RSS Feed autodiscovery */}}
+{{ with .OutputFormats.Get "rss" }}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ $.Site.Title }}">
+{{ end }}
+
+{{/* OpenGraph Meta Tags */}}
+<meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta property="og:description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+{{ $coverPath := .Params.cover | default .Params.image }}
+{{ with $coverPath }}
+  {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+    <meta property="og:image" content="{{ . }}">
+  {{ else }}
+    {{ $img := resources.Get . }}
+    {{ if not $img }}
+      {{ $img = $.Resources.GetMatch . }}
+    {{ end }}
+    {{ if $img }}
+      <meta property="og:image" content="{{ $img.Permalink }}">
+    {{ else }}
+      <meta property="og:image" content="{{ . | absURL }}">
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Twitter Cards */}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ end }}">
+<meta name="twitter:description" content="{{ with .Params.summary }}{{ . }}{{ else }}{{ with .Summary }}{{ . | plainify }}{{ else }}{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}{{ end }}{{ end }}">
+{{ with $coverPath }}
+  {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+    <meta name="twitter:image" content="{{ . }}">
+  {{ else }}
+    {{ $img := resources.Get . }}
+    {{ if not $img }}
+      {{ $img = $.Resources.GetMatch . }}
+    {{ end }}
+    {{ if $img }}
+      <meta name="twitter:image" content="{{ $img.Permalink }}">
+    {{ else }}
+      <meta name="twitter:image" content="{{ . | absURL }}">
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{/* Google Fonts */}}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+{{/* CSS via Hugo Pipes */}}
+{{ $tokens := resources.Get "css/tokens.css" }}
+{{ $base := resources.Get "css/base.css" }}
+
+{{ $animTypography := resources.Get "css/animations/typography.css" }}
+{{ $animPulse := resources.Get "css/animations/pulse.css" }}
+{{ $animatedBorder := resources.Get "css/animations/border-card.css" }}
+
+{{ $nav := resources.Get "css/components/nav.css" }}
+{{ $hero := resources.Get "css/components/hero.css" }}
+{{ $cards := resources.Get "css/components/cards.css" }}
+{{ $pagination := resources.Get "css/components/pagination.css" }}
+{{ $callout := resources.Get "css/components/callout.css" }}
+{{ $footer := resources.Get "css/components/footer.css" }}
+{{ $article := resources.Get "css/components/article.css" }}
+{{ $search := resources.Get "css/components/search.css" }}
+{{ $author := resources.Get "css/components/author.css" }}
+{{ $archive := resources.Get "css/components/archive.css" }}
+{{ $books := resources.Get "css/components/books.css" }}
+{{ $shortcodes := resources.Get "css/components/shortcodes.css" }}
+{{ $featuredBook := resources.Get "css/components/featured-book.css" }}
+{{ $latestFeed := resources.Get "css/components/latest-feed.css" }}
+{{ $about := resources.Get "css/components/about.css" }}
+{{ $contact := resources.Get "css/components/contact.css" }}
+{{ $byline := resources.Get "css/components/byline.css" }}
+
+{{ $layout := resources.Get "css/layout.css" }}
+
+{{ $styles := slice $tokens $base $animTypography $animPulse $animatedBorder $nav $hero $cards $pagination $callout $footer $article $search $author $archive $books $shortcodes $featuredBook $latestFeed $about $contact $byline $layout | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">

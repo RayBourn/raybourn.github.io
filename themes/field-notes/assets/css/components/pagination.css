@@ -1,0 +1,31 @@
+/* ---------- PAGINATION ---------- */
+.load-more-wrap {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 8px 0 clamp(48px, 8vw, 80px);
+}
+.load-more {
+  font-family: 'Inter', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  min-height: 44px;
+  padding: 10px 24px;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--ink);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.load-more:hover, .load-more:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.load-more.disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }

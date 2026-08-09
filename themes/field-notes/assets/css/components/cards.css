@@ -1,0 +1,128 @@
+/* ---------- SECTION LABEL & POST GRID ---------- */
+.section-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: clamp(40px, 6vw, 72px) 0 28px;
+}
+.section-label h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(13px, 1.8vw, 15px);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.section-label .count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--slate);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(20px, 3vw, 28px);
+  padding-bottom: 40px;
+}
+.card {
+  background: var(--card);
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  transition: transform .2s ease, box-shadow .2s ease;
+  position: relative;
+}
+.card:hover, .card:active {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px -12px rgba(24,22,20,0.25);
+}
+.card-img {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: linear-gradient(135deg, #d8cbb0, #c7b795);
+  border-bottom: 1px solid var(--line);
+}
+.card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.meta-strip {
+  background: transparent;
+  color: var(--slate);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.03em;
+  padding: 0;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+[data-theme="dark"] .meta-strip {
+  background: transparent;
+  color: var(--ink-soft);
+}
+.meta-strip .tag { color: var(--slate); font-weight: 500; opacity: 0.9; text-transform: lowercase; }
+.meta-strip .sep { opacity: 0.4; }
+.card-body {
+  padding: 20px 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.card-body h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: clamp(17px, 2vw, 19px);
+  line-height: 1.3;
+  margin: 0;
+  letter-spacing: -0.005em;
+  color: var(--ink);
+}
+.card-body p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+  flex: 1;
+  max-width: 50ch;
+}
+.read-more {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--clay);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  gap: 5px;
+  margin-top: 4px;
+}
+.card-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.card-footer-row .author-mini {
+  margin: 0;
+}
+.card-footer-row .read-more {
+  margin-top: 0;
+  min-height: auto;
+}
+.read-more .arrow { transition: transform .15s ease; }
+.card:hover .read-more .arrow,
+.card:active .read-more .arrow { transform: translateX(3px); }
+
+/* Topic Colors mapping */
+.t-life .rail, .t-life .sw { background: var(--clay); }
+.t-nature .rail, .t-nature .sw { background: var(--moss); }
+.t-tech .rail, .t-tech .sw { background: var(--slate); }
+.t-science .rail, .t-science .sw { background: var(--topic-science); }
+.t-books .rail, .t-books .sw { background: var(--topic-books); }

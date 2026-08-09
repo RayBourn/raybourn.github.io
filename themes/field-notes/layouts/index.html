@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+{{ partial "hero.html" . }}
+
+{{ $secKeys := slice }}
+{{ range $k, $v := hugo.Data.sections }}
+  {{ $secKeys = $secKeys | append $k }}
+{{ end }}
+{{ if eq (len $secKeys) 0 }}
+  {{ $secKeys = .Site.Params.mainSections | default (slice "life" "nature" "science" "tech" "books") }}
+{{ end }}
+
+{{ $allPosts := where .Site.RegularPages "Section" "in" $secKeys }}
+{{ if eq (len $allPosts) 0 }}
+  {{ $allPosts = .Site.RegularPages }}
+{{ end }}
+
+{{ $latestPost := false }}
+{{ if gt (len $allPosts) 0 }}
+  {{ $latestPost = index $allPosts 0 }}
+{{ end }}
+{{ $recentPosts := $allPosts | after 1 }}
+{{ $paginator := .Paginate $recentPosts }}
+
+<div class="wrap">
+  {{ with $latestPost }}
+    {{ partial "latest-feed.html" . }}
+  {{ end }}
+
+  <div class="section-label">
+    <h2>Recent entries</h2>
+  </div>
+
+  <div class="grid">
+    {{ range $paginator.Pages }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+
+  {{ partial "pagination.html" . }}
+
+  {{ partial "newsletter-callout.html" . }}
+</div>
+
+{{ end }}

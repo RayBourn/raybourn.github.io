@@ -1,0 +1,179 @@
+/* ---------- ARCHIVE TAG FILTERS ---------- */
+.archive-tag-section {
+  margin: 40px 0 28px;
+}
+.archive-filter-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--slate);
+  display: block;
+  margin-bottom: 14px;
+}
+.archive-tag-filters {
+  display: flex;
+  gap: 10px 8px;
+  flex-wrap: wrap;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.tag-filter-btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 6px;
+  padding: 8px 16px;
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.tag-filter-btn .tag-count {
+  opacity: 0.65;
+  font-size: 12px;
+}
+.tag-filter-btn:hover,
+.tag-filter-btn:focus-visible {
+  border-color: var(--ink);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+.tag-filter-btn.active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.tag-filter-btn.active .tag-count {
+  opacity: 0.85;
+  color: var(--paper);
+}
+
+/* ---------- ARCHIVE LIST ENTRIES ---------- */
+.archive-list {
+  margin-bottom: 80px;
+}
+
+.archive-year-group {
+  margin-bottom: 44px;
+}
+
+.archive-month-title {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 16px;
+  border-bottom: 1.5px solid var(--line);
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.archive-month-count {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--slate);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.archive-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.archive-item-row {
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
+  gap: 20px;
+  align-items: center;
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.archive-item-row:hover,
+.archive-item-row:focus-visible {
+  background: var(--card);
+  transform: translateX(4px);
+}
+
+.archive-item-topic {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--clay);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.archive-item-topic::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  display: inline-block;
+}
+
+.archive-item-topic.t-life { color: var(--topic-life, var(--clay)); }
+.archive-item-topic.t-nature { color: var(--topic-nature, var(--moss)); }
+.archive-item-topic.t-tech { color: var(--topic-tech, var(--slate)); }
+.archive-item-topic.t-science { color: var(--topic-science, #8A6D3B); }
+.archive-item-topic.t-books { color: var(--topic-books, #6B4E71); }
+
+.archive-item-title {
+  font-family: 'Fraunces', serif;
+  font-size: 17.5px;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.35;
+  transition: color 0.15s ease;
+}
+
+.archive-item-row:hover .archive-item-title {
+  color: var(--clay);
+}
+
+.archive-item-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12.5px;
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+/* Mobile Responsive adjustment for Archive list */
+@media (max-width: 640px) {
+  .archive-item-row {
+    grid-template-columns: 1fr auto;
+    gap: 6px 12px;
+    padding: 14px 10px;
+  }
+  
+  .archive-item-topic {
+    grid-column: 1 / -1;
+    font-size: 10.5px;
+    margin-bottom: 2px;
+  }
+
+  .archive-item-title {
+    font-size: 16px;
+  }
+}

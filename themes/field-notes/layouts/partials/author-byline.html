@@ -1,0 +1,29 @@
+{{ $resolved := partial "resolve-author.html" (dict "page" .) }}
+{{ $authorData := $resolved.data }}
+{{ $authorSlug := $resolved.slug }}
+{{ $avatarPath := strings.TrimPrefix "/" ($authorData.avatar | default "images/authors/author.jpg") }}
+
+<div class="author-byline" data-pagefind-ignore>
+  <div class="byline-avatar-wrap">
+    <a href="{{ printf "/authors/%s/" $authorSlug | relLangURL }}">
+      {{ $img := resources.Get $avatarPath }}
+      {{ if $img }}
+        {{ $resized := $img.Resize "96x webp" }}
+        <img src="{{ $resized.RelPermalink }}" alt="Portrait of {{ $authorData.name }}" class="byline-avatar" width="44" height="44" loading="lazy">
+      {{ else }}
+        <img src="{{ $avatarPath | relURL }}" alt="Portrait of {{ $authorData.name }}" class="byline-avatar" width="44" height="44" loading="lazy">
+      {{ end }}
+    </a>
+  </div>
+  <div class="byline-info">
+    <div class="byline-main">
+      <a href="{{ printf "/authors/%s/" $authorSlug | relLangURL }}" class="byline-name">{{ $authorData.name }}</a>
+      {{ with $authorData.role }}
+        <span class="byline-role">· {{ . }}</span>
+      {{ end }}
+    </div>
+    {{ with $authorData.social }}
+      {{ partial "author-social-links.html" (dict "social" . "mode" "icons") }}
+    {{ end }}
+  </div>
+</div>

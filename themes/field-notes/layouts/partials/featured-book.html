@@ -1,0 +1,73 @@
+{{/* Query featured book or fall back to most recent book */}}
+{{ $books := where .Site.RegularPages "Section" "books" }}
+{{ $featured := where $books "Params.featured" true }}
+{{ if not $featured }}
+  {{ $featured = $books | first 1 }}
+{{ else }}
+  {{ $featured = $featured | first 1 }}
+{{ end }}
+
+{{ range $featured }}
+  {{ $author := .Params.book_author | default .Params.subtitle | default "Literary Essay" }}
+  <section class="featured-book-section" aria-label="Latest Read">
+    <div class="section-label" style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; border-bottom: 1px solid var(--line); padding-bottom: 12px;">
+      <h2 style="font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; margin: 0; color: var(--ink);">Latest Read</h2>
+      <span class="count" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--clay); font-weight: 600; text-transform: uppercase;">Editor's Pick</span>
+    </div>
+
+    <div class="featured-book-card animated-border-card">
+      <div class="featured-book-inner">
+        <a href="{{ .RelPermalink }}" class="featured-book-cover-link" aria-label="{{ .Title }}">
+          <div class="book-cover-wrap featured-cover-wrap">
+            <div class="book-spine" aria-hidden="true"></div>
+            {{ $bookCover := .Params.cover | default .Params.image }}
+            {{ with $bookCover }}
+              {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+                <img src="{{ . }}" alt="Cover of {{ $.Title }}" loading="eager" width="170" height="255" style="object-fit: cover;">
+              {{ else }}
+                {{ $img := resources.Get . }}
+                {{ if not $img }}
+                  {{ $img = $.Resources.GetMatch . }}
+                {{ end }}
+                {{ if and $img (ne $img.MediaType.SubType "svg") }}
+                  {{ $resized := $img.Resize "450x webp" }}
+                  <img src="{{ $resized.RelPermalink }}" alt="Cover of {{ $.Title }}" loading="eager" width="170" height="255">
+                {{ else if $img }}
+                  <img src="{{ $img.RelPermalink }}" alt="Cover of {{ $.Title }}" loading="eager" width="170" height="255">
+                {{ else }}
+                  <img src="{{ . | relURL }}" alt="Cover of {{ $.Title }}" loading="eager" width="170" height="255">
+                {{ end }}
+              {{ end }}
+            {{ else }}
+              <div class="book-cover-fallback">
+                <span class="fallback-title">{{ .Title }}</span>
+              </div>
+            {{ end }}
+          </div>
+        </a>
+
+        <div class="featured-book-content">
+          <div class="featured-book-meta">
+            <span class="latest-feed-topic t-books">
+              <span class="topic-dot"></span>books
+            </span>
+            <span class="sep" style="color: var(--slate); opacity: 0.5; margin: 0 4px;">·</span>
+            <span class="featured-book-author" style="font-family: 'Inter', sans-serif; font-style: italic; font-size: 14px; color: var(--ink-soft);">{{ $author }}</span>
+          </div>
+
+          <h3 class="featured-book-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </h3>
+
+          <p class="featured-book-summary">
+            {{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify }}{{ end }}
+          </p>
+
+          <div class="featured-book-action">
+            <a href="{{ .RelPermalink }}" class="tag-filter-btn active" style="text-decoration: none; padding: 10px 22px; font-size: 13px;">Read the note →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{{ end }}

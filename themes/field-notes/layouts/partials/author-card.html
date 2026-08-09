@@ -1,0 +1,39 @@
+{{ $resolved := partial "resolve-author.html" (dict "page" .) }}
+{{ $authorData := $resolved.data }}
+{{ $authorSlug := $resolved.slug }}
+{{ $authorPhoto := strings.TrimPrefix "/" ($authorData.avatar | default $authorData.photo | default "images/authors/author.jpg") }}
+
+<div class="author-card" role="region" aria-label="Author Profile" data-pagefind-ignore>
+  <div class="author-left">
+    <div class="author-photo-wrap">
+      {{ $img := resources.Get $authorPhoto }}
+      {{ if $img }}
+        {{ $resized := $img.Resize "200x webp" }}
+        <img src="{{ $resized.RelPermalink }}" alt="Portrait of {{ $authorData.name }}" width="96" height="96" loading="lazy">
+      {{ else }}
+        <img src="{{ $authorPhoto | relURL }}" alt="Portrait of {{ $authorData.name }}" width="96" height="96" loading="lazy">
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="author-right">
+    <span class="author-eyebrow">Written by</span>
+    <div class="author-header-row">
+      <h4 class="author-name">
+        <a href="{{ printf "/authors/%s/" $authorSlug | relLangURL }}" style="color: inherit; text-decoration: none;">{{ $authorData.name }}</a>
+      </h4>
+      {{ with $authorData.role }}
+        <span class="author-role">{{ . }}</span>
+      {{ end }}
+    </div>
+    <p class="author-bio">{{ $authorData.bio }}</p>
+    <div class="author-footer">
+      {{ with $authorData.social }}
+        {{ partial "author-social-links.html" (dict "social" . "mode" "icons") }}
+      {{ end }}
+      <div class="author-links">
+        <a href="{{ printf "/authors/%s/" $authorSlug | relLangURL }}">more posts →</a>
+      </div>
+    </div>
+  </div>
+</div>

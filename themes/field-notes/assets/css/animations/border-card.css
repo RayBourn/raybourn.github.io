@@ -1,0 +1,52 @@
+/* ---------- ANIMATION UTILITIES: ROTATING BORDER CARD ---------- */
+.animated-border-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 2.5px;
+  background: var(--line);
+  box-shadow: 0 8px 30px rgba(24, 22, 20, 0.08);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+}
+
+.animated-border-card::before {
+  content: '';
+  position: absolute;
+  inset: -150%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    var(--clay) 90deg,
+    rgba(193, 80, 46, 0.5) 150deg,
+    transparent 180deg,
+    var(--moss) 270deg,
+    rgba(46, 89, 65, 0.5) 330deg,
+    transparent 360deg
+  );
+  animation: slowBorderRotate 4s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.animated-border-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(24, 22, 20, 0.12);
+}
+
+@keyframes slowBorderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animated-border-card::before {
+    animation: none;
+    transform: none;
+    background: linear-gradient(135deg, var(--clay), var(--moss), var(--slate));
+    opacity: 0.4;
+  }
+}

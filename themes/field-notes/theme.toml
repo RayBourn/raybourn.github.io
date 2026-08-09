@@ -1,0 +1,12 @@
+name = "Field Notes"
+license = "MIT"
+licenselink = "https://github.com/fieldnotes/blog/blob/main/LICENSE"
+description = "A minimalist, multi-topic personal blog theme for Hugo based on editorial typography and muted natural swatches."
+homepage = "https://github.com/fieldnotes/blog"
+tags = ["blog", "personal", "typography", "clean", "responsive"]
+features = ["hugo-pipes", "search", "dark-accents", "responsive"]
+min_version = "0.110.0"
+
+[author]
+  name = "Field Notes"
+  homepage = "https://example.org"

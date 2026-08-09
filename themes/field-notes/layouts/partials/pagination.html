@@ -1,0 +1,11 @@
+{{ $pag := .Paginator }}
+{{ if gt $pag.TotalPages 1 }}
+<div class="load-more-wrap" role="navigation" aria-label="Pagination">
+  {{ if $pag.HasPrev }}
+    <a class="load-more" href="{{ $pag.Prev.URL }}">↑ Newer posts</a>
+  {{ end }}
+  {{ if $pag.HasNext }}
+    <a class="load-more" href="{{ $pag.Next.URL }}">Older posts ↓</a>
+  {{ end }}
+</div>
+{{ end }}

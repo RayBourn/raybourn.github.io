@@ -1,0 +1,25 @@
+{{ $alt := .Text }}
+{{ $src := .Destination }}
+{{ $title := .Title }}
+
+<figure class="prose-figure">
+  {{ if or (hasPrefix $src "http://") (hasPrefix $src "https://") }}
+    <img src="{{ $src }}" alt="{{ $alt | plainify }}" {{ with $title }}title="{{ . }}"{{ end }} loading="lazy">
+  {{ else }}
+    {{ $img := resources.Get $src }}
+    {{ if not $img }}
+      {{ $img = $.Page.Resources.GetMatch $src }}
+    {{ end }}
+    {{ if and $img (ne $img.MediaType.SubType "svg") }}
+      {{ $resized := $img.Resize "1200x webp" }}
+      <img src="{{ $resized.RelPermalink }}" alt="{{ $alt | plainify }}" width="{{ $resized.Width }}" height="{{ $resized.Height }}" loading="lazy">
+    {{ else if $img }}
+      <img src="{{ $img.RelPermalink }}" alt="{{ $alt | plainify }}" loading="lazy">
+    {{ else }}
+      <img src="{{ $src | relURL }}" alt="{{ $alt | plainify }}" loading="lazy">
+    {{ end }}
+  {{ end }}
+  {{ with $alt }}
+    <figcaption>{{ . }}</figcaption>
+  {{ end }}
+</figure>

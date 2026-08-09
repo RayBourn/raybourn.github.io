@@ -1,0 +1,18 @@
+<div class="meta-strip">
+  {{ $secID := .Section | lower }}
+  {{ with .Params.categories }}
+    {{ $secID = index . 0 | lower }}
+  {{ end }}
+  {{ $secData := index hugo.Data.sections $secID }}
+  <span class="tag">{{ if $secData }}{{ $secData.name }}{{ else }}{{ $secID | title }}{{ end }}</span>
+  <span class="sep">·</span>
+  {{ with .Params.book_author }}
+    <span>by {{ . }}</span>
+    <span class="sep">·</span>
+  {{ end }}
+  <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02 Jan 2006" }}</time>
+  {{ if (site.Params.features.show_reading_time | default true) }}
+    <span class="sep">·</span>
+    <span>{{ .ReadingTime }} min</span>
+  {{ end }}
+</div>

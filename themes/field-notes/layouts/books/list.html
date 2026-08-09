@@ -1,0 +1,118 @@
+{{ define "main" }}
+
+{{ $books := where .Site.RegularPages "Section" "books" }}
+{{ $featuredList := where $books "Params.featured" true }}
+{{ $latestRead := false }}
+{{ if gt (len $featuredList) 0 }}
+  {{ $latestRead = index $featuredList 0 }}
+{{ else if gt (len $books) 0 }}
+  {{ $latestRead = index $books 0 }}
+{{ end }}
+{{ $shelfBooks := slice }}
+{{ if $latestRead }}
+  {{ $shelfBooks = where $books "Permalink" "ne" $latestRead.Permalink }}
+{{ else }}
+  {{ $shelfBooks = $books }}
+{{ end }}
+
+{{/* Full-Width Site Hero Header for Books */}}
+<section class="hero book-hero">
+  {{ $heroImgPath := or .Params.hero_image .Site.Params.hero_image }}
+  {{ if $heroImgPath }}
+    {{ $img := resources.Get $heroImgPath }}
+    {{ if not $img }}
+      {{ $img = $.Resources.GetMatch $heroImgPath }}
+    {{ end }}
+    {{ if and $img (ne $img.MediaType.SubType "svg") }}
+      {{ $resized := $img.Resize "1920x webp" }}
+      <img src="{{ $resized.RelPermalink }}" alt="" class="hero-bg-img" loading="eager" width="{{ $resized.Width }}" height="{{ $resized.Height }}" aria-hidden="true">
+    {{ else if $img }}
+      <img src="{{ $img.RelPermalink }}" alt="" class="hero-bg-img" loading="eager" aria-hidden="true">
+    {{ else }}
+      <img src="{{ $heroImgPath | relURL }}" alt="" class="hero-bg-img" loading="eager" aria-hidden="true">
+    {{ end }}
+    <div class="hero-overlay" aria-hidden="true"></div>
+  {{ end }}
+
+  <div class="wrap">
+    <div class="book-hero-grid">
+      <div class="book-hero-text">
+        <h1 class="headline book-hero-headline">Every book leaves a <br><em>margin note.</em></h1>
+        <p class="sub book-hero-sub">Essays, marginalia, and reflections on books read, re-read, and kept close — filed by subject and returned to over time.</p>
+      </div>
+      <div class="book-hero-illustration">
+        {{ $heroImg := resources.Get "images/book-hero.png" }}
+        {{ if not $heroImg }}{{ $heroImg = resources.Get "images/book-hero.jpg" }}{{ end }}
+        {{ if not $heroImg }}{{ $heroImg = resources.Get "images/book-hero.jpeg" }}{{ end }}
+        {{ if not $heroImg }}{{ $heroImg = resources.Get "images/book-hero.webp" }}{{ end }}
+        {{ if not $heroImg }}{{ $heroImg = resources.Get "images/book-hero.gif" }}{{ end }}
+        {{ if not $heroImg }}{{ $heroImg = resources.Get "images/book-hero.svg" }}{{ end }}
+        {{ if and $heroImg (ne $heroImg.MediaType.SubType "svg") }}
+          {{ $resized := $heroImg.Resize "800x webp" }}
+          <img src="{{ $resized.RelPermalink }}" alt="Open book illustration" loading="eager" width="360" height="200">
+        {{ else if $heroImg }}
+          <img src="{{ $heroImg.RelPermalink }}" alt="Open book illustration" loading="eager" width="360" height="200">
+        {{ else }}
+          <img src="{{ "images/book-hero.png" | relURL }}" alt="Open book illustration" loading="eager" width="360" height="200">
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="books-dashboard-wrap">
+  <div class="wrap">
+
+    {{/* Featured Book Section */}}
+    {{ partial "featured-book.html" . }}
+
+    {{/* Notes & Reviews Shelf Grid */}}
+    <section class="books-section" id="bookshelf-grid">
+      <div class="section-label">
+        <h2>Notes &amp; Reviews</h2>
+      </div>
+
+      <div class="books-shelf-grid">
+        {{ range $shelfBooks }}
+          {{ $author := .Params.book_author | default .Params.subtitle | default "Literary Essay" }}
+          <a href="{{ .RelPermalink }}" class="book-card" data-title="{{ .Title | lower }}" data-author="{{ $author | lower }}" aria-label="{{ .Title }}">
+            <div class="book-cover-wrap">
+              <div class="book-spine" aria-hidden="true"></div>
+              {{ $coverPath := .Params.cover | default .Params.image }}
+              {{ with $coverPath }}
+                {{ if or (hasPrefix . "http://") (hasPrefix . "https://") }}
+                  <img src="{{ . }}" alt="Cover of {{ $.Title }}" loading="lazy" width="200" height="300" style="object-fit: cover;">
+                {{ else }}
+                  {{ $img := resources.Get . }}
+                  {{ if not $img }}
+                    {{ $img = $.Resources.GetMatch . }}
+                  {{ end }}
+                  {{ if and $img (ne $img.MediaType.SubType "svg") }}
+                    {{ $resized := $img.Resize "400x webp" }}
+                    <img src="{{ $resized.RelPermalink }}" alt="Cover of {{ $.Title }}" loading="lazy" width="200" height="300">
+                  {{ else if $img }}
+                    <img src="{{ $img.RelPermalink }}" alt="Cover of {{ $.Title }}" loading="lazy" width="200" height="300">
+                  {{ else }}
+                    <img src="{{ . | relURL }}" alt="Cover of {{ $.Title }}" loading="lazy">
+                  {{ end }}
+                {{ end }}
+              {{ else }}
+                <div class="book-cover-fallback">
+                  <span class="fallback-title">{{ .Title }}</span>
+                </div>
+              {{ end }}
+            </div>
+            <div class="book-meta">
+              <h3 class="book-title">{{ .Title }}</h3>
+              <span class="book-author">{{ $author }}</span>
+            </div>
+          </a>
+        {{ end }}
+      </div>
+    </section>
+
+    {{ partial "newsletter-callout.html" . }}
+  </div>
+</div>
+
+{{ end }}

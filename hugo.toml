@@ -1,0 +1,84 @@
+baseURL = 'https://raybourn.github.io/'
+locale = 'en-us'
+title = 'Field Notes'
+theme = 'field-notes'
+paginate = 12
+enableRobotsTXT = true
+
+[outputFormats.JSON]
+  mediaType = 'application/json'
+  baseName = 'index'
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+# ==============================================================================
+# TAXONOMIES
+# ==============================================================================
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+  authors = 'authors'
+
+# ==============================================================================
+# SITE PARAMETERS
+# ==============================================================================
+[params]
+  # ---------- Site Metadata ----------
+  description = 'Essays on nature, science, books, and the tools we build — written slowly, filed by subject, indexed like it matters.'
+  keywords = ['essays', 'field notes', 'nature', 'science', 'books', 'technology', 'psychology']
+
+  # ---------- Homepage Hero Banner ----------
+  hero_image = "images/hero-bg.webp"
+  eyebrow = 'Parminder S Rana'
+  headline_html = 'Notes on living closely <em>&amp; paying attention</em>'
+  sub = 'Notes and observations on books, science, nature, psychology, and the small things worth noticing.'
+
+  # ---------- Author & Editorial Defaults ----------
+  author = 'Parminder S Rana'
+  author_key = 'prana'
+  author_avatar = 'images/authors/author.jpg'
+
+  # ---------- Content Sections ----------
+  mainSections = ['issue', 'life', 'nature', 'science', 'tech']
+
+  # ---------- Footer & Copyright ----------
+  copyright = '© 2025-26 Field Notes'
+  footer_tagline = 'Essays on nature, science, books, and the tools we build.'
+
+  # ---------- Newsletter Settings ----------
+  newsletter_k = 'field dispatch · monthly'
+  newsletter_title = 'One email, once a month. No noise.'
+  newsletter_sub = 'Newsletter gets delivered straight to your inbox once a month.'
+
+  # ---------- Contact Form & Security ----------
+  contactFormEndpoint = "https://script.google.com/macros/s/AKfycby2Al3O4xj4R8Rte7ZoCtMzEf4wVSmGtP3-m2llf8ip4XQyovStZLhZiPBobI-_Rg5-/exec"
+  turnstileSiteKey = ""
+  contact_email = "hello@example.org"
+
+# ---------- UI & Feature Flags Category ----------
+[params.features]
+  enable_search = true
+  enable_dark_mode = true
+  enable_related_posts = true
+  show_reading_time = true
+
+# ==============================================================================
+# RELATED CONTENT CONFIGURATION
+# ==============================================================================
+[related]
+  includeNewer = false
+  threshold = 80
+  toLower = false
+
+  [[related.indices]]
+    name = 'categories'
+    weight = 100
+
+  [[related.indices]]
+    name = 'tags'
+    weight = 70
+
+  [[related.indices]]
+    name = 'date'
+    weight = 10

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ or site.Language.Locale site.LanguageCode | default "en" }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+
+  {{ partial "nav.html" . }}
+
+  <main id="main-content">
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "footer.html" . }}
+
+  {{ partial "search-modal.html" . }}
+
+  {{ $searchJS := resources.Get "js/search.js" }}
+  {{ $contactJS := resources.Get "js/contact-form.js" }}
+  {{ $bundleJS := slice $searchJS $contactJS | resources.Concat "js/bundle.js" | resources.Minify | resources.Fingerprint }}
+  <script src="{{ $bundleJS.RelPermalink }}" integrity="{{ $bundleJS.Data.Integrity }}" defer></script>
+</body>
+</html>

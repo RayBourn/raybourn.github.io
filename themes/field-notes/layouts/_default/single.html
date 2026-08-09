@@ -1,0 +1,107 @@
+{{ define "main" }}
+
+<article class="wrap" data-pagefind-body>
+  <header class="post-header">
+    {{ $postSections := slice "issue" "life" "nature" "science" "tech" "books" }}
+    {{ if in $postSections .Section }}
+      {{ partial "meta-strip.html" . }}
+    {{ end }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.summary }}
+      <p class="lead">{{ . }}</p>
+    {{ else }}
+      {{ with .Summary }}
+        <p class="lead">{{ . | plainify }}</p>
+      {{ else }}
+        {{ with .Params.description }}
+          <p class="lead">{{ . }}</p>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ partial "author-byline.html" . }}
+  </header>
+
+  {{ $hasFloatImg := .HasShortcode "float-img" }}
+  {{ $showCover := or .Params.show_cover .Params.show_cover_image .Params.show_cover_in_article }}
+  {{ $coverPath := .Params.cover | default .Params.image }}
+  {{ if and $coverPath $showCover (not $hasFloatImg) }}
+    <figure class="post-cover">
+      {{ if or (hasPrefix $coverPath "http://") (hasPrefix $coverPath "https://") }}
+        <img src="{{ $coverPath }}" alt="{{ $.Title }}" loading="lazy" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+      {{ else }}
+        {{ $img := resources.Get $coverPath }}
+        {{ if not $img }}
+          {{ $img = $.Resources.GetMatch $coverPath }}
+        {{ end }}
+        {{ if and $img (ne $img.MediaType.SubType "svg") }}
+          {{ $img600 := $img.Resize "600x webp" }}
+          {{ $img900 := $img.Resize "900x webp" }}
+          {{ $img1200 := $img.Resize "1200x webp" }}
+          <img 
+            src="{{ $img1200.RelPermalink }}" 
+            srcset="{{ $img600.RelPermalink }} 600w, {{ $img900.RelPermalink }} 900w, {{ $img1200.RelPermalink }} 1200w"
+            sizes="(max-width: 900px) 100vw, 1200px"
+            alt="{{ $.Title }}" 
+            loading="lazy" 
+            width="{{ $img1200.Width }}" 
+            height="{{ $img1200.Height }}"
+            style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        {{ else if $img }}
+          <img 
+            src="{{ $img.RelPermalink }}" 
+            alt="{{ $.Title }}" 
+            loading="lazy"
+            style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        {{ else }}
+          <img src="{{ $coverPath | relURL }}" alt="{{ $.Title }}" loading="lazy" style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        {{ end }}
+      {{ end }}
+      {{ with $.Params.cover_caption }}
+        <figcaption>{{ . }}</figcaption>
+      {{ end }}
+    </figure>
+  {{ end }}
+
+  <div class="prose">
+    {{ .Content }}
+
+    {{ with .Params.tags }}
+      <div class="post-tags" aria-label="Tags">
+        {{ range . }}
+          <a href="{{ printf "/tags/%s/" (. | urlize) | relLangURL }}" class="post-tag">{{ . }}</a>
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</article>
+
+{{ $postSections := slice "issue" "life" "nature" "science" "tech" "books" }}
+{{ if in $postSections .Section }}
+  <div class="wrap">
+    {{ partial "author-card.html" . }}
+  </div>
+{{ end }}
+
+{{/* Related Posts using Hugo's built-in related engine */}}
+{{ if (site.Params.features.enable_related_posts | default true) }}
+  {{ $related := .Site.RegularPages.Related . | first 3 }}
+  {{ with $related }}
+    <section class="related-section wrap" aria-label="Related essays">
+      <div class="section-label">
+        <h2>Related essays</h2>
+        <span class="count">{{ len . }} entries</span>
+      </div>
+      <div class="grid">
+        {{ range . }}
+          {{ partial "post-card.html" . }}
+        {{ end }}
+      </div>
+    </section>
+  {{ end }}
+{{ end }}
+
+<div class="wrap">
+  {{ partial "newsletter-callout.html" . }}
+</div>
+
+{{ end }}

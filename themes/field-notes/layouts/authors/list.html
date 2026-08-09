@@ -1,0 +1,64 @@
+{{ define "main" }}
+
+{{ $resolvedAuthor := partial "resolve-author.html" (dict "authorKey" (.Params.author_key | default .Title)) }}
+{{ $authorKey := $resolvedAuthor.key }}
+{{ $authorData := $resolvedAuthor.data }}
+
+<section class="hero author-archive-hero">
+  <div class="wrap">
+    {{ if $authorData }}
+      <div class="author-archive-header" style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap;">
+        <div class="author-archive-avatar-wrap">
+          {{ $avatarPath := strings.TrimPrefix "/" ($authorData.avatar | default "images/authors/author.jpg") }}
+          {{ $img := resources.Get $avatarPath }}
+          {{ if $img }}
+            {{ $resized := $img.Resize "160x webp" }}
+            <img src="{{ $resized.RelPermalink }}" alt="{{ $authorData.name }}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--line); display: block;">
+          {{ else }}
+            <img src="{{ $avatarPath | relURL }}" alt="{{ $authorData.name }}" style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--line); display: block;">
+          {{ end }}
+        </div>
+        <div style="flex: 1; min-width: 240px;">
+          <div class="eyebrow">author profile · {{ $authorData.role | default "Essayist" }}</div>
+          <h1 class="headline" style="font-size: clamp(24px, 3.5vw, 36px); margin: 4px 0 8px 0;">{{ $authorData.name }}</h1>
+          <p class="sub" style="margin: 0 0 12px 0;">{{ $authorData.bio }}</p>
+          {{ with $authorData.social }}
+            {{ partial "author-social-links.html" (dict "social" . "mode" "both") }}
+          {{ end }}
+        </div>
+      </div>
+    {{ else }}
+      <div class="eyebrow">author archive</div>
+      <h1 class="headline">{{ .Title }}</h1>
+      <p class="sub">Essays and notes by {{ .Title }}.</p>
+    {{ end }}
+  </div>
+</section>
+
+{{ $nameToMatch := .Title }}
+{{ if $authorData }}
+  {{ $nameToMatch = $authorData.name }}
+{{ end }}
+{{ $authorPosts := where site.RegularPages "Params.author" "in" (slice $authorKey $nameToMatch ($authorKey | urlize) ($nameToMatch | urlize) $.Title ($.Title | urlize)) }}
+{{ if eq (len $authorPosts) 0 }}
+  {{ $authorPosts = .Pages }}
+{{ end }}
+{{ $paginator := .Paginate $authorPosts }}
+
+<div class="wrap">
+  <div class="section-label">
+    <h2>Essays by {{ if $authorData }}{{ $authorData.name }}{{ else }}{{ .Title }}{{ end }}</h2>
+    <span class="count">{{ printf "%03d" (len $authorPosts) }} entries</span>
+  </div>
+
+  <div class="grid">
+    {{ range $paginator.Pages }}
+      {{ partial "post-card.html" . }}
+    {{ end }}
+  </div>
+
+  {{ partial "pagination.html" . }}
+  {{ partial "newsletter-callout.html" . }}
+</div>
+
+{{ end }}

@@ -1,0 +1,67 @@
+{{ define "main" }}
+
+{{/* Site-Wide Hero Header */}}
+<section class="hero">
+  {{ partial "hero-bg.html" . }}
+  <div class="wrap">
+    <h1 class="headline">{{ .Title }}</h1>
+    {{ with .Params.description }}
+      <p class="sub">{{ . }}</p>
+    {{ end }}
+  </div>
+</section>
+
+<div class="wrap" style="padding-top: 40px;">
+
+  {{/* Author Specimen Banner */}}
+  {{ $resolvedAuthor := partial "resolve-author.html" (dict "page" .) }}
+  {{ $authorData := $resolvedAuthor.data }}
+  {{ if $authorData }}
+    <div class="about-author-banner">
+      <div class="about-author-avatar">
+        {{ $photo := strings.TrimPrefix "/" ($authorData.avatar | default "images/authors/author.jpg") }}
+        {{ $img := resources.Get $photo }}
+        {{ if $img }}
+          {{ $resized := $img.Resize "160x webp" }}
+          <img src="{{ $resized.RelPermalink }}" alt="{{ $authorData.name }}" width="72" height="72" loading="lazy">
+        {{ else }}
+          <img src="{{ $photo | relURL }}" alt="{{ $authorData.name }}" width="72" height="72" loading="lazy">
+        {{ end }}
+      </div>
+      <div class="about-author-info">
+        <div class="about-author-header">
+          <h2 class="about-author-name">{{ $authorData.name }}</h2>
+          <span class="author-role">{{ $authorData.role | default "Editor & Founder" }}</span>
+        </div>
+        <p class="about-author-bio">{{ $authorData.bio }}</p>
+        {{ with $authorData.social }}
+          {{ partial "author-social-links.html" (dict "social" . "mode" "icons") }}
+        {{ end }}
+      </div>
+    </div>
+  {{ end }}
+
+  {{/* Main Narrative Content */}}
+  <div class="about-section">
+    <div class="about-prose prose">
+      {{ .Content }}
+    </div>
+  </div>
+
+  {{/* Contact Us Feature */}}
+  <section class="about-contact-section">
+    <div class="about-section-heading">
+      <h2>Get in Touch</h2>
+      <span class="about-heading-line"></span>
+    </div>
+    <p class="about-contact-sub">Have a thought, essay feedback, or book recommendation? Send a note directly below.</p>
+    
+    <div class="about-contact-card">
+      {{ partial "contact-form.html" . }}
+    </div>
+  </section>
+
+  {{ partial "newsletter-callout.html" . }}
+</div>
+
+{{ end }}

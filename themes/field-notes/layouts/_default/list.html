@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<section class="hero">
+  {{ partial "hero-bg.html" . }}
+  <div class="wrap">
+    <div class="eyebrow">archive · {{ .Title | lower }}</div>
+    <h1 class="headline">{{ .Title }}</h1>
+    <p class="sub">{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ else }}Essays and notes filed under {{ .Title | lower }}.{{ end }}{{ end }}</p>
+  </div>
+</section>
+
+{{ $paginator := .Paginate .Pages }}
+
+<div class="wrap">
+  <div class="section-label">
+    <h2>{{ .Title }} entries</h2>
+  </div>
+
+  {{ if gt (len .Pages) 0 }}
+    <div class="grid">
+      {{ range $paginator.Pages }}
+        {{ partial "post-card.html" . }}
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="empty-section-notice" style="padding: 48px 24px; text-align: center; background: var(--card); border: 1px solid var(--line); border-radius: 8px; margin-bottom: 48px;">
+      <p style="font-family: 'Fraunces', serif; font-size: 18px; color: var(--ink-soft); margin: 0 0 8px 0;">No published entries in {{ .Title }} yet.</p>
+      <p style="font-size: 14px; color: var(--slate); margin: 0;">New essays and field notes are being drafted for this subject.</p>
+    </div>
+  {{ end }}
+
+  {{ partial "pagination.html" . }}
+
+  {{ partial "newsletter-callout.html" . }}
+</div>
+
+{{ end }}
