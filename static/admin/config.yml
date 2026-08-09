@@ -25,10 +25,8 @@ collections:
           label: "Publish Date",
           name: "date",
           widget: "datetime",
-          format: "YYYY-MM-DDTHH:mm:ssZ",
-          date_format: "YYYY-MM-DD",
-          time_format: "HH:mm:ss",
           picker_utc: true,
+          default: "{{now}}",
         }
 
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
@@ -85,10 +83,8 @@ collections:
           label: "Publish Date",
           name: "date",
           widget: "datetime",
-          format: "YYYY-MM-DDTHH:mm:ssZ",
-          date_format: "YYYY-MM-DD",
-          time_format: "HH:mm:ss",
           picker_utc: true,
+          default: "{{now}}",
         }
 
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
@@ -138,10 +134,8 @@ collections:
           label: "Publish Date",
           name: "date",
           widget: "datetime",
-          format: "YYYY-MM-DDTHH:mm:ssZ",
-          date_format: "YYYY-MM-DD",
-          time_format: "HH:mm:ss",
           picker_utc: true,
+          default: "{{now}}",
         }
 
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
@@ -191,10 +185,8 @@ collections:
           label: "Publish Date",
           name: "date",
           widget: "datetime",
-          format: "YYYY-MM-DDTHH:mm:ssZ",
-          date_format: "YYYY-MM-DD",
-          time_format: "HH:mm:ss",
           picker_utc: true,
+          default: "{{now}}",
         }
 
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
@@ -244,10 +236,8 @@ collections:
           label: "Publish Date",
           name: "date",
           widget: "datetime",
-          format: "YYYY-MM-DDTHH:mm:ssZ",
-          date_format: "YYYY-MM-DD",
-          time_format: "HH:mm:ss",
           picker_utc: true,
+          default: "{{now}}",
         }
 
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
@@ -324,6 +314,7 @@ collections:
               name: "date",
               widget: "datetime",
               picker_utc: true,
+              default: "{{now}}",
             }
 
           - { label: "Draft", name: "draft", widget: "boolean", default: false }
