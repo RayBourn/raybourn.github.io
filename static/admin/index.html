@@ -28,27 +28,45 @@
             ],
             default: "right"
           },
-          { name: "width", label: "Width (e.g. 40% or 300px)", widget: "string", default: "40%" }
+          { name: "width", label: "Width (e.g. 40% or 300px)", widget: "string", default: "40%" },
+          { name: "caption", label: "Caption (Optional)", widget: "string", required: false }
         ],
-        pattern: /^<img src="([^"]+)" alt="([^"]*)" style="float:\s*(left|right);\s*width:\s*([^;]+);[^"]*"\/?>$/,
+        pattern: /^(?:<figure style="float:\s*(left|right);\s*width:\s*([^;]+);[^"]*">\s*<img src="([^"]+)" alt="([^"]*)"\/?>\s*(?:<figcaption>(.*?)<\/figcaption>)?\s*<\/figure>|<img src="([^"]+)" alt="([^"]*)" style="float:\s*(left|right);\s*width:\s*([^;]+);[^"]*"\/?>)$/s,
         fromBlock: function(match) {
-          return {
-            src: match[1],
-            alt: match[2],
-            side: match[3],
-            width: match[4]
-          };
+          if (match[1]) {
+            return {
+              side: match[1],
+              width: match[2],
+              src: match[3],
+              alt: match[4],
+              caption: match[5] || ''
+            };
+          } else {
+            return {
+              src: match[6],
+              alt: match[7],
+              side: match[8],
+              width: match[9],
+              caption: ''
+            };
+          }
         },
         toBlock: function(obj) {
           var side = obj.side || 'right';
           var width = obj.width || '40%';
           var margin = side === 'left' ? '0 1.5rem 1rem 0' : '0 0 1rem 1.5rem';
+          if (obj.caption && obj.caption.trim()) {
+            return `<figure style="float:${side}; width:${width}; margin:${margin};">\n  <img src="${obj.src || ''}" alt="${obj.alt || ''}">\n  <figcaption>${obj.caption.trim()}</figcaption>\n</figure>`;
+          }
           return `<img src="${obj.src || ''}" alt="${obj.alt || ''}" style="float:${side}; width:${width}; margin:${margin};">`;
         },
         toPreview: function(obj) {
           var side = obj.side || 'right';
           var width = obj.width || '40%';
           var margin = side === 'left' ? '0 1.5rem 1rem 0' : '0 0 1rem 1.5rem';
+          if (obj.caption && obj.caption.trim()) {
+            return `<figure style="float:${side}; width:${width}; margin:${margin};"><img src="${obj.src || ''}" alt="${obj.alt || ''}"><figcaption>${obj.caption.trim()}</figcaption></figure>`;
+          }
           return `<img src="${obj.src || ''}" alt="${obj.alt || ''}" style="float:${side}; width:${width}; margin:${margin};">`;
         }
       });
