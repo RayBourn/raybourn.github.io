@@ -3,6 +3,8 @@ backend:
   repo: RayBourn/raybourn.github.io
   branch: main
 
+local_backend: true
+
 media_folder: "assets/images"
 public_folder: "images"
 
