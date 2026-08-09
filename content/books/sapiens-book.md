@@ -21,7 +21,7 @@ g
 
 gdfg
 
-![kiofa](https://cdn.jsdelivr.net/gh/RayBourn/2026/Images/aug26/sapeins%20book%20cover.webp "htr")
+![sapiens book cover](https://cdn.jsdelivr.net/gh/RayBourn/2026/Images/aug26/sapeins%20book%20cover.webp)
 
 dg
 
