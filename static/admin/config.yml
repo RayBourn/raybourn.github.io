@@ -2,6 +2,7 @@ backend:
   name: github
   repo: RayBourn/raybourn.github.io
   branch: main
+  site_domain: raybournblog.netlify.app
 
 local_backend: true
 
@@ -19,10 +20,25 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Author", name: "author", widget: "string", default: "prana" }
-      - { label: "Book Author", name: "book_author", widget: "string", required: false }
-      - { label: "Categories", name: "categories", widget: "list", default: ["books"] }
+      - {
+          label: "Book Author",
+          name: "book_author",
+          widget: "string",
+          required: false,
+        }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "list",
+          default: ["books"],
+        }
       - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - {
+          label: "Cover Image",
+          name: "cover",
+          widget: "image",
+          required: false,
+        }
       - { label: "Summary", name: "summary", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -36,9 +52,19 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Author", name: "author", widget: "string", default: "prana" }
-      - { label: "Categories", name: "categories", widget: "list", default: ["life"] }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "list",
+          default: ["life"],
+        }
       - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - {
+          label: "Cover Image",
+          name: "cover",
+          widget: "image",
+          required: false,
+        }
       - { label: "Summary", name: "summary", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -52,9 +78,19 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Author", name: "author", widget: "string", default: "prana" }
-      - { label: "Categories", name: "categories", widget: "list", default: ["science"] }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "list",
+          default: ["science"],
+        }
       - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - {
+          label: "Cover Image",
+          name: "cover",
+          widget: "image",
+          required: false,
+        }
       - { label: "Summary", name: "summary", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -68,9 +104,19 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Author", name: "author", widget: "string", default: "prana" }
-      - { label: "Categories", name: "categories", widget: "list", default: ["tech"] }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "list",
+          default: ["tech"],
+        }
       - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - {
+          label: "Cover Image",
+          name: "cover",
+          widget: "image",
+          required: false,
+        }
       - { label: "Summary", name: "summary", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
@@ -84,9 +130,19 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Draft", name: "draft", widget: "boolean", default: false }
       - { label: "Author", name: "author", widget: "string", default: "prana" }
-      - { label: "Categories", name: "categories", widget: "list", default: ["nature"] }
+      - {
+          label: "Categories",
+          name: "categories",
+          widget: "list",
+          default: ["nature"],
+        }
       - { label: "Tags", name: "tags", widget: "list" }
-      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - {
+          label: "Cover Image",
+          name: "cover",
+          widget: "image",
+          required: false,
+        }
       - { label: "Summary", name: "summary", widget: "text", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
