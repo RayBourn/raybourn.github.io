@@ -2,7 +2,7 @@ backend:
   name: github
   repo: RayBourn/raybourn.github.io
   branch: main
-  site_domain: raybournblog.netlify.app
+  site_domain: wondrous-cendol-1c64bb.netlify.app
 
 local_backend: true
 
