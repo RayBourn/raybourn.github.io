@@ -2,6 +2,9 @@
 <html lang="{{ or site.Language.Locale site.LanguageCode | default "en" }}">
 <head>
   {{ partial "head.html" . }}
+  {{ if .Site.Params.turnstileSiteKey }}
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+  {{ end }}
 </head>
 <body>
 

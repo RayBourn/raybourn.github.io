@@ -23,6 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
     input.value = Date.now().toString();
   });
 
+  function resetTurnstile() {
+    if (typeof turnstile !== 'undefined' && typeof turnstile.reset === 'function') {
+      try {
+        turnstile.reset();
+      } catch (err) {
+        console.warn('Turnstile reset error:', err);
+      }
+    }
+  }
+
   // --------------------------------------------------------------------------
   // 1. CONTACT FORM HANDLER
   // --------------------------------------------------------------------------
@@ -30,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     const endpoint = contactForm.getAttribute('data-form-endpoint') || contactForm.getAttribute('action');
     const submitBtn = document.getElementById('contact-submit-btn');
+    const btnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
     const feedbackEl = document.getElementById('contact-form-feedback');
     const nameInput = document.getElementById('contact-name');
     const emailInput = document.getElementById('contact-email');
@@ -50,13 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
       feedbackEl.textContent = '';
     }
 
+    function setSubmitting(isSubmitting) {
+      if (!submitBtn) return;
+      submitBtn.disabled = isSubmitting;
+      if (btnText) {
+        btnText.textContent = isSubmitting ? 'Sending...' : 'Send Message →';
+      }
+    }
+
     contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
       if (!endpoint || endpoint.trim() === '' || endpoint === '#') {
         console.warn('Contact form endpoint is not configured in hugo.toml (params.contactFormEndpoint).');
+        showFeedback('error', 'Contact form is not configured properly.');
         return;
       }
 
-      e.preventDefault();
       hideFeedback();
 
       const name = nameInput ? nameInput.value.trim() : '';
@@ -88,6 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      const turnstileWidget = contactForm.querySelector('.cf-turnstile');
+      if (turnstileWidget && !turnstileToken) {
+        showFeedback('error', 'Please complete the security check.');
+        return;
+      }
+
+      setSubmitting(true);
+
       const payload = {
         type: 'contact',
         name: name,
@@ -98,24 +127,38 @@ document.addEventListener('DOMContentLoaded', () => {
         turnstile_token: turnstileToken
       };
 
-      // Dispatch fetch asynchronously without blocking UI
       fetch(endpoint, {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8'
         },
         body: JSON.stringify(payload)
-      }).catch(err => console.error('Background submit error:', err));
-
-      // Optimistic UI response
-      contactForm.innerHTML = `
-        <div class="contact-success-box" style="padding: 28px 24px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
-          <div style="font-size: 32px; margin-bottom: 12px;">✓</div>
-          <h3 style="font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 0 0 8px 0;">Message Sent!</h3>
-          <p style="font-size: 15px; color: var(--ink-soft); margin: 0;">Thank you, ${escapeHTML(name)}. Your note has been delivered successfully.</p>
-        </div>
-      `;
+      })
+        .then(response => {
+          return response.json();
+        })
+        .then(result => {
+          if (result && result.status === 'success') {
+            contactForm.innerHTML = `
+              <div class="contact-success-box" style="padding: 28px 24px; background: var(--card); border: 1px solid var(--line); border-radius: 8px; text-align: center;">
+                <div style="font-size: 32px; margin-bottom: 12px;">✓</div>
+                <h3 style="font-family: 'Fraunces', serif; font-size: 22px; color: var(--ink); margin: 0 0 8px 0;">Message Sent!</h3>
+                <p style="font-size: 15px; color: var(--ink-soft); margin: 0;">Thank you, ${escapeHTML(name)}. Your note has been delivered successfully.</p>
+              </div>
+            `;
+          } else {
+            const errorMsg = (result && result.message) ? result.message : 'Submission failed. Please try again.';
+            showFeedback('error', errorMsg);
+            setSubmitting(false);
+            resetTurnstile();
+          }
+        })
+        .catch(err => {
+          console.error('Contact form submission error:', err);
+          showFeedback('error', 'An error occurred while sending your note. Please try again.');
+          setSubmitting(false);
+          resetTurnstile();
+        });
     });
   }
 
@@ -124,25 +167,74 @@ document.addEventListener('DOMContentLoaded', () => {
   // --------------------------------------------------------------------------
   const newsletterForms = document.querySelectorAll('.callout-form, #newsletter-form');
   newsletterForms.forEach(nForm => {
+    const submitBtn = nForm.querySelector('button[type="submit"], #newsletter-submit-btn');
+    const originalBtnText = submitBtn ? submitBtn.textContent : 'Subscribe';
+
+    function showNewsletterFeedback(type, messageText) {
+      let feedbackEl = nForm.querySelector('.newsletter-feedback-msg, #newsletter-form-feedback');
+      if (!feedbackEl) {
+        feedbackEl = document.createElement('div');
+        feedbackEl.className = `newsletter-feedback-msg ${type}`;
+        feedbackEl.setAttribute('aria-live', 'polite');
+        feedbackEl.style.marginTop = '8px';
+        feedbackEl.style.fontSize = '13.5px';
+        feedbackEl.style.lineHeight = '1.4';
+        nForm.appendChild(feedbackEl);
+      }
+      feedbackEl.style.display = 'block';
+      feedbackEl.className = `newsletter-feedback-msg ${type}`;
+      feedbackEl.style.color = type === 'error' ? '#f87171' : 'var(--ink)';
+      feedbackEl.textContent = messageText;
+    }
+
+    function hideNewsletterFeedback() {
+      const feedbackEl = nForm.querySelector('.newsletter-feedback-msg, #newsletter-form-feedback');
+      if (feedbackEl) {
+        feedbackEl.style.display = 'none';
+        feedbackEl.textContent = '';
+      }
+    }
+
+    function setNewsletterSubmitting(isSubmitting) {
+      if (!submitBtn) return;
+      submitBtn.disabled = isSubmitting;
+      submitBtn.textContent = isSubmitting ? 'Subscribing...' : originalBtnText;
+    }
+
     nForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
       const endpoint = nForm.getAttribute('data-form-endpoint') || nForm.getAttribute('action');
       if (!endpoint || endpoint.trim() === '' || endpoint === '#') {
         console.warn('Newsletter endpoint is not configured in hugo.toml (params.contactFormEndpoint).');
+        showNewsletterFeedback('error', 'Newsletter form is not configured properly.');
         return;
       }
 
-      e.preventDefault();
+      hideNewsletterFeedback();
 
       const emailInput = nForm.querySelector('input[type="email"]');
       const honeypotInput = nForm.querySelector('input[name="website"]');
       const email = emailInput ? emailInput.value.trim() : '';
       const website = honeypotInput ? honeypotInput.value.trim() : '';
 
+      // Extract Turnstile response token if widget is present on form (Layer 5)
+      const turnstileInput = nForm.querySelector('[name="cf-turnstile-response"]');
+      const turnstileToken = turnstileInput ? turnstileInput.value : '';
+
       if (!email || !isValidEmail(email)) {
-        alert('Please enter a valid email address.');
+        showNewsletterFeedback('error', 'Please enter a valid email address.');
         if (emailInput) emailInput.focus();
         return;
       }
+
+      const turnstileWidget = nForm.querySelector('.cf-turnstile');
+      if (turnstileWidget && !turnstileToken) {
+        showNewsletterFeedback('error', 'Please complete the security check.');
+        return;
+      }
+
+      setNewsletterSubmitting(true);
 
       const payload = {
         type: 'newsletter',
@@ -150,23 +242,40 @@ document.addEventListener('DOMContentLoaded', () => {
         email: email,
         message: 'Subscribed to Monthly Field Dispatch',
         website: website,
-        form_time: Date.now().toString()
+        form_time: Date.now().toString(),
+        turnstile_token: turnstileToken
       };
 
       fetch(endpoint, {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
           'Content-Type': 'text/plain;charset=utf-8'
         },
         body: JSON.stringify(payload)
-      }).catch(err => console.error('Background newsletter submit error:', err));
-
-      nForm.innerHTML = `
-        <div style="font-family: 'Fraunces', serif; font-size: 15px; color: #fff; background: rgba(255,255,255,0.12); padding: 10px 18px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.25);">
-          You're subscribed! We will notify you soon. <br/>Thank you.
-        </div>
-      `;
+      })
+        .then(response => {
+          return response.json();
+        })
+        .then(result => {
+          if (result && result.status === 'success') {
+            nForm.innerHTML = `
+              <div style="font-family: 'Fraunces', serif; font-size: 15px; color: #fff; background: rgba(255,255,255,0.12); padding: 10px 18px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.25);">
+                You're subscribed! We will notify you soon. <br/>Thank you.
+              </div>
+            `;
+          } else {
+            const errorMsg = (result && result.message) ? result.message : 'Subscription failed. Please try again.';
+            showNewsletterFeedback('error', errorMsg);
+            setNewsletterSubmitting(false);
+            resetTurnstile();
+          }
+        })
+        .catch(err => {
+          console.error('Newsletter submission error:', err);
+          showNewsletterFeedback('error', 'An error occurred while subscribing. Please try again.');
+          setNewsletterSubmitting(false);
+          resetTurnstile();
+        });
     });
   });
 });

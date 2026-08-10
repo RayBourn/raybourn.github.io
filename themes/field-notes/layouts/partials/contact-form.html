@@ -1,10 +1,6 @@
 {{ $endpoint := .Site.Params.contactFormEndpoint | default "" }}
 {{ $turnstileSiteKey := .Site.Params.turnstileSiteKey | default "" }}
 
-{{/* Cloudflare Turnstile script tag */}}
-{{ if $turnstileSiteKey }}
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-{{ end }}
 
 <form 
   id="contact-form" 

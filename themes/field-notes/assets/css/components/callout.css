@@ -58,7 +58,13 @@
 
 .callout-form {
   display: flex;
+  flex-direction: column;
   gap: 10px;
+}
+.callout-input-row {
+  display: flex;
+  gap: 10px;
+  width: 100%;
 }
 .callout-form input {
   flex: 1;

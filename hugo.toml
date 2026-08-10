@@ -54,7 +54,7 @@ buildFuture = true
 
   # ---------- Contact Form & Security ----------
   contactFormEndpoint = "https://script.google.com/macros/s/AKfycby2Al3O4xj4R8Rte7ZoCtMzEf4wVSmGtP3-m2llf8ip4XQyovStZLhZiPBobI-_Rg5-/exec"
-  turnstileSiteKey = ""
+  turnstileSiteKey = "0x4AAAAAAELrT2AWQO2T_GGi"
   contact_email = "hello@example.org"
 
 # ---------- UI & Feature Flags Category ----------
