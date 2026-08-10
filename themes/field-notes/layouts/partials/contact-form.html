@@ -38,7 +38,7 @@
   {{/* 5. Cloudflare Turnstile Widget (rendered if turnstileSiteKey parameter is configured) */}}
   {{ if $turnstileSiteKey }}
   <div class="form-group turnstile-container" style="margin-top: 12px; margin-bottom: 12px;">
-    <div class="cf-turnstile" data-sitekey="{{ $turnstileSiteKey }}" data-theme="auto"></div>
+    <div class="cf-turnstile" data-sitekey="{{ $turnstileSiteKey }}" data-theme="auto" data-size="compact"></div>
   </div>
   {{ end }}
 
