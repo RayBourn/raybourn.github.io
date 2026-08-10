@@ -23,6 +23,23 @@ document.addEventListener('DOMContentLoaded', () => {
     input.value = Date.now().toString();
   });
 
+  function getDeviceId() {
+    const STORAGE_KEY = 'fn_device_id';
+    try {
+      let deviceId = localStorage.getItem(STORAGE_KEY);
+      if (!deviceId) {
+        deviceId = 'dev_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 15);
+        localStorage.setItem(STORAGE_KEY, deviceId);
+      }
+      return deviceId;
+    } catch (err) {
+      // localStorage unavailable (private browsing, disabled, etc.) — fall back to a
+      // session-only id so the form still works, just without persistence across reloads
+      console.warn('localStorage unavailable for device id:', err);
+      return 'nostorage_' + Date.now().toString(36) + '_' + Math.random().toString(36).substring(2, 15);
+    }
+  }
+
   function resetTurnstile() {
     if (typeof turnstile !== 'undefined' && typeof turnstile.reset === 'function') {
       try {
@@ -124,7 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
         message: message,
         website: website,
         form_time: formTime,
-        turnstile_token: turnstileToken
+        turnstile_token: turnstileToken,
+        device_id: getDeviceId()
       };
 
       fetch(endpoint, {
@@ -243,7 +261,8 @@ document.addEventListener('DOMContentLoaded', () => {
         message: 'Subscribed to Monthly Field Dispatch',
         website: website,
         form_time: Date.now().toString(),
-        turnstile_token: turnstileToken
+        turnstile_token: turnstileToken,
+        device_id: getDeviceId()
       };
 
       fetch(endpoint, {
