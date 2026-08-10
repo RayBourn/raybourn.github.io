@@ -14,9 +14,8 @@
       <input type="text" id="newsletter-website" name="website" tabindex="-1" autocomplete="off">
     </div>
     
-    <div class="callout-input-row" style="display: flex; gap: 10px; width: 100%;">
-      <input type="email" id="newsletter-email" name="email" placeholder="you@somewhere.com" required aria-label="Email address" style="flex: 1;">
-      <button type="submit" id="newsletter-submit-btn">Subscribe</button>
+    <div class="callout-input-group">
+      <input type="email" id="newsletter-email" name="email" placeholder="you@somewhere.com" required aria-label="Email address">
     </div>
 
     {{ if $turnstileSiteKey }}
@@ -25,7 +24,11 @@
     </div>
     {{ end }}
 
-    <div id="newsletter-form-feedback" class="newsletter-feedback-msg" aria-live="polite" style="display: none; margin-top: 8px; font-size: 13.5px; line-height: 1.4;"></div>
+    <div id="newsletter-form-feedback" class="newsletter-feedback-msg" aria-live="polite" style="display: none;"></div>
+
+    <div class="callout-action-group">
+      <button type="submit" id="newsletter-submit-btn">Subscribe</button>
+    </div>
   </form>
 </div>
 
