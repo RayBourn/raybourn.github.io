@@ -138,6 +138,11 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.contact-form .cf-turnstile {
+  display: inline-block;
+  min-width: 300px;
+}
+
 @media (max-width: 600px) {
   .about-contact-card {
     padding: 20px 16px;
