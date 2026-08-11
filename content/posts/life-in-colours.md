@@ -3,10 +3,10 @@ title: "Life in colours"
 date: 2025-12-31T00:00:00Z
 draft: false
 authors: "Parminder S Rana"
-categories: ["life"]
 tags: ["life", "colors", "reflection"]
 cover: "https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/ResizedImage_2026-01-23_12-09-07_1.webp"
 summary: "An end-of-year reflection on the shifting palettes, gradients, and subtle hues of human experience."
+aliases: ["/life/life-in-colours/", "/life/life-in-colours"]
 ---
 
 It is the 31st day of dec 2025. A day that absorbs all the years’ happy and sad

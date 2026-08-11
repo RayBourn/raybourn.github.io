@@ -17,7 +17,6 @@ buildFuture = true
 # TAXONOMIES
 # ==============================================================================
 [taxonomies]
-  category = 'categories'
   tag = 'tags'
   authors = 'authors'
 
@@ -41,16 +40,11 @@ buildFuture = true
   author_avatar = 'images/authors/author.jpg'
 
   # ---------- Content Sections ----------
-  mainSections = ['issue', 'life', 'nature', 'science', 'tech']
+  mainSections = ['posts']
 
   # ---------- Footer & Copyright ----------
   copyright = '© 2025-26 Field Notes'
   footer_tagline = 'Essays on nature, science, books, and the tools we build.'
-
-  # ---------- Newsletter Settings ----------
-  newsletter_k = 'field dispatch · monthly'
-  newsletter_title = 'One email, once a month. No noise.'
-  newsletter_sub = 'Newsletter gets delivered straight to your inbox once a month.'
 
   # ---------- Contact Form & Security ----------
   contactFormEndpoint = "https://script.google.com/macros/s/AKfycby2Al3O4xj4R8Rte7ZoCtMzEf4wVSmGtP3-m2llf8ip4XQyovStZLhZiPBobI-_Rg5-/exec"
@@ -73,12 +67,8 @@ buildFuture = true
   toLower = false
 
   [[related.indices]]
-    name = 'categories'
-    weight = 100
-
-  [[related.indices]]
     name = 'tags'
-    weight = 70
+    weight = 100
 
   [[related.indices]]
     name = 'date'

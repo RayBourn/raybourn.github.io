@@ -1,11 +1,10 @@
 <div class="meta-strip">
   {{ $secID := .Section | lower }}
-  {{ with .Params.categories }}
-    {{ $secID = index . 0 | lower }}
+  {{ if ne $secID "posts" }}
+    {{ $secData := index hugo.Data.sections $secID }}
+    <span class="tag">{{ if $secData }}{{ $secData.name }}{{ else }}{{ $secID | title }}{{ end }}</span>
+    <span class="sep">·</span>
   {{ end }}
-  {{ $secData := index hugo.Data.sections $secID }}
-  <span class="tag">{{ if $secData }}{{ $secData.name }}{{ else }}{{ $secID | title }}{{ end }}</span>
-  <span class="sep">·</span>
   {{ with .Params.book_author }}
     <span>by {{ . }}</span>
     <span class="sep">·</span>

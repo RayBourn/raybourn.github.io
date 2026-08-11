@@ -3,10 +3,10 @@ title: "What I learned about my subconscious mind."
 date: 2025-12-03T00:00:00Z
 draft: false
 authors: "Parminder S Rana"
-categories: ["science"]
 tags: ["Psychology", "Behaviour", "Mind"]
 cover: "https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/ResizedImage_2026-01-23_10-04-25_1.webp"
 summary: "What I discovered about the hidden patterns and quiet decisions my subconscious mind makes every day — and how understanding it changed the way I live."
+aliases: ["/science/what-i-learned-about-my-subconscious-mind/", "/science/what-i-learned-about-my-subconscious-mind"]
 ---
 
 Before opening my eyes, my hand was sliding across the bed under the command of

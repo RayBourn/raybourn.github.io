@@ -2,18 +2,11 @@
 
 {{ $books := where .Site.RegularPages "Section" "books" }}
 {{ $featuredList := where $books "Params.featured" true }}
-{{ $latestRead := false }}
+{{ $latestRead := index $books 0 }}
 {{ if gt (len $featuredList) 0 }}
   {{ $latestRead = index $featuredList 0 }}
-{{ else if gt (len $books) 0 }}
-  {{ $latestRead = index $books 0 }}
 {{ end }}
-{{ $shelfBooks := slice }}
-{{ if $latestRead }}
-  {{ $shelfBooks = where $books "Permalink" "ne" $latestRead.Permalink }}
-{{ else }}
-  {{ $shelfBooks = $books }}
-{{ end }}
+{{ $shelfBooks := where $books "Permalink" "ne" $latestRead.Permalink }}
 
 {{/* Full-Width Site Hero Header for Books */}}
 <section class="hero book-hero">

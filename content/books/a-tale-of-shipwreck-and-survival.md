@@ -4,7 +4,6 @@ date: 2025-09-24T00:00:00Z
 draft: false
 authors: "Parminder S Rana"
 book_author: "David Grann"
-categories: ["books"]
 tags: ["History", "Books", "Survival"]
 cover: "https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/wager.webp"
 summary: "A harrowing 18th-century tale of mutiny, shipwreck off the Patagonian coast, and the endurance of castaways."

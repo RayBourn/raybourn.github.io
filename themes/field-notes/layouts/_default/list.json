@@ -1,0 +1,13 @@
+[
+  {{- $posts := where site.RegularPages "Type" "in" (slice "issue" "life" "nature" "science" "tech" "books") -}}
+  {{- range $index, $page := $posts -}}
+  {{- if $index }},{{ end -}}
+  {
+    "title": {{- $page.Title | jsonify -}},
+    "url": {{- $page.RelPermalink | jsonify -}},
+    "date": {{- $page.Date.Format "02 Jan 2006" | jsonify -}},
+    "section": {{- $page.Section | jsonify -}},
+    "tags": {{- ($page.Params.tags | default (slice)) | jsonify -}}
+  }
+  {{- end -}}
+]

@@ -3,10 +3,10 @@ title: "How a man found the meaning of life."
 date: 2025-10-23T00:00:00Z
 draft: false
 authors: "Parminder S Rana"
-categories: ["life"]
 tags: ["Psychology", "Behaviour", "Flow State"]
 cover: "https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/ResizedImage_2026-01-22_21-35-30_1392.webp"
 summary: "How Mihaly Csikszentmihalyi discovered the psychological state of flow and how anyone can achieve deep focus in daily living."
+aliases: ["/life/how-a-man-found-the-meaning-of-life/", "/life/how-a-man-found-the-meaning-of-life"]
 ---
 
 No idea where to go. The air-raid siren was making shrieking sound. Soon there

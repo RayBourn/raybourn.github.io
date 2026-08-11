@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">taxonomy index</div>
+    <h1 class="headline">{{ .Title }}</h1>
+    <p class="sub">Explore all entries grouped by {{ .Title | lower }}.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="section-label">
+    <h2>All {{ .Title | lower }}</h2>
+    <span class="count">{{ printf "%03d" (len .Data.Terms) }} terms</span>
+  </div>
+
+  <div class="topic-keys" style="padding-bottom: 80px;">
+    {{ range $key, $value := .Data.Terms }}
+      <a href="{{ $value.Page.RelPermalink }}" class="key">
+        {{ $key }} ({{ len $value.Pages }})
+      </a>
+    {{ end }}
+  </div>
+</div>
+
+{{ end }}

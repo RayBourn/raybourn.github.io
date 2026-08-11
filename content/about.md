@@ -1,26 +1,25 @@
 ---
 title: "About Field Notes"
 draft: false
-description: "A place for ideas worth slowing down for — notes on books, science, nature, technology, psychology, and everyday life."
+description: "A space for ideas worth slowing down for — essays on living, science, technology, and literary reflections on books."
 type: "about"
 ---
 
 ## Why Field Notes exists
 
-In a world of endless scrolling, algorithmic feeds, and fragmented attention, Field Notes exists as a quiet space for ideas worth slowing down for. It’s a multi-topic personal notebook where observations, reflections, and curiosities are recorded thoughtfully, edited intentionally, and organized for clarity. Unlike the ephemeral nature of social media, Field Notes is built to be read slowly — a collection of essays, notes, and explorations that accumulate into a lasting archive.
+In an era dominated by endless scrolling, algorithmic feeds, and fleeting distractions, **Field Notes** serves as a quiet refuge for thoughtful reading and deliberate reflection. It is a digital garden where observations, questions, and ideas are recorded carefully, revised intentionally, and filed into a lasting archive.
+
+Unlike social media posts designed to vanish into the stream, every piece here is written slowly — meant to be read with focus and returned to over time.
 
 ## What you'll find here
 
-- **Books:** Notes, reflections, and explorations on books I read, the ideas they contain, and how they shape my thinking.
-- **Science:** Observations, insights, and questions about the natural world, scientific discoveries, and the ever-evolving landscape of human knowledge.
-- **Technology:** Thoughts on the tools we use, the systems that shape our lives, and the intersection of technology, society, and the human experience.
-- **Nature:** Explorations of the outdoors, the beauty of the natural world, and reflections inspired by walks, hikes, and time spent in nature.
-- **Daily Life:** Musings on everyday moments, personal reflections, and observations that capture the texture of daily living.
+Field Notes is organized into two core sections:
 
-and some other topics also.
+- **Posts:** Long-form essays, observations, and deep dives exploring human behaviour, psychology, scientific discoveries, digital culture, and the quiet patterns of everyday life.
+- **Books:** Literary notes, re-readings, marginalia, and key takeaways from books that shape our thinking and expand our perspective.
 
-## A growing notebook
+## A growing archive
 
-Field Notes is a living document, a place that grows and evolves with time. It’s a space where ideas can be explored, questioned, and refined — a notebook that’s meant to be revisited, expanded upon, and cherished.
+Field Notes is a living notebook that evolves with time. It is a place for questioning assumptions, cultivating curiosity, and building an enduring collection of ideas worth keeping.
 
-## Read slowly. Notice more. Keep what matters.
+> *Read slowly. Notice more. Keep what matters.*

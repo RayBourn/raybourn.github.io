@@ -1,9 +1,6 @@
 {{ $latest := . }}
 {{ if $latest }}
-  {{ $topic := $latest.Section }}
-  {{ with $latest.Params.categories }}
-    {{ $topic = index . 0 | lower }}
-  {{ end }}
+  {{ $topic := $latest.Section | lower }}
 
   <div class="latest-feed-section">
     <div class="section-label latest-feed-label">
@@ -18,10 +15,12 @@
       <div class="latest-feed-inner">
         <div class="latest-feed-content">
           <div class="latest-feed-meta">
-            <span class="latest-feed-topic t-{{ $topic }}">
-              <span class="topic-dot"></span>{{ $topic }}
-            </span>
-            <span class="meta-sep">•</span>
+            {{ if ne $topic "posts" }}
+              <span class="latest-feed-topic t-{{ $topic }}">
+                <span class="topic-dot"></span>{{ $topic }}
+              </span>
+              <span class="meta-sep">•</span>
+            {{ end }}
             <time class="latest-feed-date">{{ $latest.Date.Format "January 02, 2006" }}</time>
             {{ with $latest.ReadingTime }}
               <span class="meta-sep">•</span>

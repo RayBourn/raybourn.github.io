@@ -8,21 +8,8 @@
     <div class="nav-links" id="nav-links">
       {{ $currentPage := . }}
 
-      {{/* Posts ▾ Dropdown */}}
-      <div class="nav-dropdown">
-        <a href="{{ "/" | relLangURL }}" class="nav-dropdown-toggle {{ if and (index hugo.Data.sections $currentPage.Section) (ne $currentPage.Section "books") }}active{{ end }}">
-          Posts <span class="arrow-down" aria-hidden="true">▾</span>
-        </a>
-        <div class="nav-dropdown-menu">
-          {{ range $secID, $secData := hugo.Data.sections }}
-            {{ if ne $secID "books" }}
-              <a href="{{ printf "/%s/" $secID | relLangURL }}">{{ $secData.name }}</a>
-            {{ end }}
-          {{ end }}
-        </div>
-      </div>
-
-      {{/* Direct Links */}}
+      {{/* Direct Section Tabs */}}
+      <a href="{{ "/" | relLangURL }}" class="{{ if or (eq $currentPage.Section "posts") (and (ne $currentPage.Section "books") (eq $currentPage.RelPermalink "/")) }}active{{ end }}">Posts</a>
       <a href="{{ "/books/" | relLangURL }}" class="{{ if eq $currentPage.Section "books" }}active{{ end }}">Books</a>
       <a href="{{ "/archive/" | relLangURL }}" class="{{ if eq $currentPage.RelPermalink "/archive/" }}active{{ end }}">Archive</a>
       <a href="{{ "/about/" | relLangURL }}" class="{{ if eq $currentPage.RelPermalink "/about/" }}active{{ end }}">About</a>

@@ -83,7 +83,6 @@
 {{ $hero := resources.Get "css/components/hero.css" }}
 {{ $cards := resources.Get "css/components/cards.css" }}
 {{ $pagination := resources.Get "css/components/pagination.css" }}
-{{ $callout := resources.Get "css/components/callout.css" }}
 {{ $footer := resources.Get "css/components/footer.css" }}
 {{ $article := resources.Get "css/components/article.css" }}
 {{ $search := resources.Get "css/components/search.css" }}
@@ -99,5 +98,5 @@
 
 {{ $layout := resources.Get "css/layout.css" }}
 
-{{ $styles := slice $tokens $base $animTypography $animPulse $animatedBorder $nav $hero $cards $pagination $callout $footer $article $search $author $archive $books $shortcodes $featuredBook $latestFeed $about $contact $byline $layout | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint }}
+{{ $styles := slice $tokens $base $animTypography $animPulse $animatedBorder $nav $hero $cards $pagination $footer $article $search $author $archive $books $shortcodes $featuredBook $latestFeed $about $contact $byline $layout | resources.Concat "css/bundle.css" | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">

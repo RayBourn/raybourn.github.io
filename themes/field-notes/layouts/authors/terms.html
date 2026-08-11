@@ -1,0 +1,41 @@
+{{ define "main" }}
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">directory</div>
+    <h1 class="headline">Authors & Contributors</h1>
+    <p class="sub">The writers, researchers, and essayists filing notes across our core subjects.</p>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 40px;">
+    {{ range $key, $data := hugo.Data.authors }}
+      <div class="card" style="padding: 24px; display: flex; flex-direction: column; gap: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 8px;">
+        <div style="display: flex; align-items: center; gap: 16px;">
+          {{ $avatarPath := strings.TrimPrefix "/" ($data.avatar | default "images/authors/author.jpg") }}
+          {{ $img := resources.Get $avatarPath }}
+          {{ if $img }}
+            {{ $resized := $img.Resize "120x webp" }}
+            <img src="{{ $resized.RelPermalink }}" alt="{{ $data.name }}" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;">
+          {{ else }}
+            <img src="{{ $avatarPath | relURL }}" alt="{{ $data.name }}" style="width: 56px; height: 56px; border-radius: 50%; object-fit: cover;">
+          {{ end }}
+          <div>
+            <h3 style="font-family: 'Fraunces', serif; font-size: 18px; margin: 0;"><a href="{{ printf "/authors/%s/" ($key | urlize) | relLangURL }}" style="color: var(--ink); text-decoration: none;">{{ $data.name }}</a></h3>
+            <span style="font-size: 13px; color: var(--slate);">{{ $data.role }}</span>
+          </div>
+        </div>
+        <p style="font-size: 14px; color: var(--ink-soft); margin: 0; line-height: 1.4;">{{ $data.bio }}</p>
+        {{ with $data.social }}
+          {{ partial "author-social-links.html" (dict "social" . "mode" "icons") }}
+        {{ end }}
+        <div style="margin-top: auto; padding-top: 8px;">
+          <a href="{{ printf "/authors/%s/" ($key | urlize) | relLangURL }}" style="font-size: 13px; font-weight: 500; color: var(--clay); text-decoration: none;">View all essays →</a>
+        </div>
+      </div>
+    {{ end }}
+  </div>
+</div>
+
+{{ end }}

@@ -1,24 +1,9 @@
-issue:
-  name: "Issue"
-  description: "Special editions, deep dives, and themed issues."
-  color: "#9c7c38"
-
-life:
-  name: "Life"
-  description: "Essays on daily living, philosophy, and personal reflections."
+posts:
+  name: "Posts"
+  description: "Essays, observations, and deep dives on living, science, and technology."
   color: "var(--clay)"
 
-nature:
-  name: "Nature"
-  description: "Observations of wildlife, ecology, and natural phenomena."
+books:
+  name: "Books"
+  description: "Re-readings, literary reflections, and marginalia."
   color: "var(--moss)"
-
-science:
-  name: "Science"
-  description: "Notes on physics, biology, and scientific discoveries."
-  color: "var(--topic-science)"
-
-tech:
-  name: "Tech"
-  description: "Notes on software, digital tools, and web infrastructure."
-  color: "var(--slate)"

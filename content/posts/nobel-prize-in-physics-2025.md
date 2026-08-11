@@ -3,10 +3,10 @@ title: "Nobel Prize in Physics 2025"
 date: 2025-10-08T00:00:00Z
 draft: false
 authors: "Parminder S Rana"
-categories: ["science"]
 tags: ["Science", "Discovery", "Physics"]
 cover: "https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/nobel_prize_physics_2025.webp"
 summary: "How three scientists discovered macroscopic quantum-mechanical tunneling and energy quantization in electrical circuits."
+aliases: ["/science/nobel-prize-in-physics-2025/", "/science/nobel-prize-in-physics-2025"]
 ---
 
 Every year, the Nobel Foundation awards Nobel Prizes. It covers six fields:

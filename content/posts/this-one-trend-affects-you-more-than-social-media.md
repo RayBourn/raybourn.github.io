@@ -3,10 +3,10 @@ title: "This one trend affects you more than social media"
 date: 2025-12-22T00:00:00Z
 draft: false
 authors: "Parminder S Rana"
-categories: ["tech"]
 tags: ["Psychology", "Behaviour", "Social Media", "Enshittification"]
 cover: "https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/ResizedImage_2026-01-23_10-34-27_1.webp"
 summary: "This term describes how the digital platforms and services we love inevitably become terrible over time. It is a specific decay pattern."
+aliases: ["/tech/this-one-trend-affects-you-more-than-social-media/", "/tech/this-one-trend-affects-you-more-than-social-media"]
 ---
 
 It is 5 pm. Over the horizon, an orange gradient is filling the sky with

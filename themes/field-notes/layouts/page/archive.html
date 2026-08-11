@@ -1,7 +1,6 @@
 {{ define "main" }}
 
 <section class="hero">
-  {{ partial "hero-bg.html" . }}
   <div class="wrap">
     <h1 class="headline">Archive</h1>
     <p class="sub">A complete chronological index of all essays, filed by month, year, subject, and topic tags.</p>
@@ -51,19 +50,22 @@
   </div>
 
   <div class="archive-list">
-    {{ range ($allPosts.GroupByDate "January 2006") }}
-      <div class="archive-year-group">
-        <h3 class="archive-month-title">
-          <span>{{ .Key }}</span>
-          <span class="archive-month-count">{{ len .Pages }} {{ if eq (len .Pages) 1 }}entry{{ else }}entries{{ end }}</span>
+    {{ range ($posts.GroupByDate "January 2006") }}
+      <div class="archive-year-group" style="margin-bottom: 48px;">
+        <h3 style="font-family: 'Fraunces', serif; font-size: 24px; font-weight: 500; margin: 0 0 20px; border-bottom: 1px solid var(--line); padding-bottom: 8px;">
+          {{ .Key }}
         </h3>
-        <div class="archive-entries">
+        <div style="display: flex; flex-direction: column; gap: 16px;">
           {{ range .Pages }}
             {{ $topic := .Section | lower }}
-            <a href="{{ .RelPermalink }}" class="archive-item-row archive-item" data-tags="{{ range .Params.tags }}{{ . | urlize }} {{ end }}">
-              <span class="archive-item-topic t-{{ $topic }}">{{ $topic }}</span>
-              <span class="archive-item-title">{{ .Title }}</span>
-              <time class="archive-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02" }}</time>
+            <a href="{{ .RelPermalink }}" class="archive-item" data-tags="{{ range .Params.tags }}{{ . | urlize }} {{ end }}" style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 12px 16px; background: var(--card); border: 1px solid var(--line); border-radius: 4px; transition: transform .15s ease, border-color .15s ease;">
+              <div style="display: flex; align-items: baseline; gap: 12px; flex: 1;">
+                <span class="key t-{{ $topic }}" style="font-size: 11px; padding: 3px 8px;"><span class="sw"></span>{{ $topic }}</span>
+                <span style="font-family: 'Fraunces', serif; font-size: 17px; font-weight: 500; color: var(--ink);">{{ .Title }}</span>
+              </div>
+              <time style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--slate); white-space: nowrap;">
+                {{ .Date.Format "Jan 02" }}
+              </time>
             </a>
           {{ end }}
         </div>

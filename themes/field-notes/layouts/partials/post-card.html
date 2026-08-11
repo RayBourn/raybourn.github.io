@@ -1,8 +1,5 @@
-{{ $topic := .Section }}
-{{ with .Params.categories }}
-  {{ $topic = index . 0 | lower }}
-{{ end }}
-<a class="card t-{{ $topic }}" href="{{ .RelPermalink }}">
+{{ $topic := .Section | lower }}
+<a class="card{{ if ne $topic "posts" }} t-{{ $topic }}{{ end }}" href="{{ .RelPermalink }}">
   <div class="card-img">
     {{ $coverPath := .Params.cover | default .Params.image }}
     {{ with $coverPath }}

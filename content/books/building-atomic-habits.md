@@ -4,7 +4,6 @@ date: 2026-01-09T14:00:00+05:30
 draft: false
 authors: "Parminder S Rana"
 book_author: "James Clear"
-categories: ["books"]
 tags: ["Habits", "Books", "Productivity"]
 cover: "https://cdn.jsdelivr.net/gh/RayBourn/2026@4ac73484652ed4df3dc677cf83433e3b429d56f5/Images/Jan26/81ANaVZk5LL.webp"
 show_cover: false

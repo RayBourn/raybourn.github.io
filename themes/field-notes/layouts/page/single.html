@@ -1,0 +1,16 @@
+{{ define "main" }}
+
+<article class="wrap">
+  <header class="post-header" style="margin-bottom: 32px;">
+    <h1 style="font-family: 'Fraunces', serif; font-size: clamp(32px, 5vw, 48px); font-weight: 500; margin: 0 0 16px; color: var(--ink);">{{ .Title }}</h1>
+    {{ with .Params.description }}
+      <p class="lead" style="font-size: 18px; line-height: 1.6; color: var(--ink-soft); max-width: 54ch; margin: 0;">{{ . }}</p>
+    {{ end }}
+  </header>
+
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</article>
+
+{{ end }}

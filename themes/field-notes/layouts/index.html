@@ -2,18 +2,7 @@
 
 {{ partial "hero.html" . }}
 
-{{ $secKeys := slice }}
-{{ range $k, $v := hugo.Data.sections }}
-  {{ $secKeys = $secKeys | append $k }}
-{{ end }}
-{{ if eq (len $secKeys) 0 }}
-  {{ $secKeys = .Site.Params.mainSections | default (slice "life" "nature" "science" "tech" "books") }}
-{{ end }}
-
-{{ $allPosts := where .Site.RegularPages "Section" "in" $secKeys }}
-{{ if eq (len $allPosts) 0 }}
-  {{ $allPosts = .Site.RegularPages }}
-{{ end }}
+{{ $allPosts := where .Site.RegularPages "Section" "posts" }}
 
 {{ $latestPost := false }}
 {{ if gt (len $allPosts) 0 }}
@@ -39,7 +28,6 @@
 
   {{ partial "pagination.html" . }}
 
-  {{ partial "newsletter-callout.html" . }}
 </div>
 
 {{ end }}

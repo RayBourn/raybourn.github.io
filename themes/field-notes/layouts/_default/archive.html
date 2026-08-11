@@ -1,15 +1,57 @@
 {{ define "main" }}
 
 <section class="hero">
-  {{ partial "hero-bg.html" . }}
+  {{ $heroImgPath := or .Params.hero_image .Site.Params.hero_image }}
+  {{ if $heroImgPath }}
+    {{ $img := resources.Get $heroImgPath }}
+    {{ if not $img }}
+      {{ $img = $.Resources.GetMatch $heroImgPath }}
+    {{ end }}
+    {{ if and $img (ne $img.MediaType.SubType "svg") }}
+      {{ $resized := $img.Resize "1920x webp" }}
+      <img 
+        src="{{ $resized.RelPermalink }}" 
+        alt="" 
+        class="hero-bg-img" 
+        loading="eager" 
+        width="{{ $resized.Width }}" 
+        height="{{ $resized.Height }}"
+        aria-hidden="true">
+    {{ else if $img }}
+      <img 
+        src="{{ $img.RelPermalink }}" 
+        alt="" 
+        class="hero-bg-img" 
+        loading="eager" 
+        aria-hidden="true">
+    {{ else }}
+      <img 
+        src="{{ $heroImgPath | relURL }}" 
+        alt="" 
+        class="hero-bg-img" 
+        loading="eager" 
+        aria-hidden="true">
+    {{ end }}
+    <div class="hero-overlay" aria-hidden="true"></div>
+  {{ end }}
   <div class="wrap">
     <h1 class="headline">Archive</h1>
-    <p class="sub">A complete chronological index of all essays, filed by month, year, subject, and topic tags.</p>
+    <p class="sub">A chronological record of ideas, observations and questions gathered along the way.</p>
   </div>
 </section>
 
-{{ $archiveSections := slice "posts" "books" }}
-{{ $allPosts := where .Site.RegularPages "Section" "in" $archiveSections }}
+{{ $secKeys := slice }}
+{{ range $k, $v := hugo.Data.sections }}
+  {{ $secKeys = $secKeys | append $k }}
+{{ end }}
+{{ if eq (len $secKeys) 0 }}
+  {{ $secKeys = slice "posts" "books" }}
+{{ end }}
+
+{{ $allPosts := where .Site.RegularPages "Section" "in" $secKeys }}
+{{ if eq (len $allPosts) 0 }}
+  {{ $allPosts = .Site.RegularPages }}
+{{ end }}
 {{ $maxPosts := .Site.Params.paginate | default 12 }}
 {{ $posts := $allPosts | first $maxPosts }}
 
@@ -51,7 +93,7 @@
   </div>
 
   <div class="archive-list">
-    {{ range ($allPosts.GroupByDate "January 2006") }}
+    {{ range ($posts.GroupByDate "January 2006") }}
       <div class="archive-year-group">
         <h3 class="archive-month-title">
           <span>{{ .Key }}</span>
@@ -61,7 +103,7 @@
           {{ range .Pages }}
             {{ $topic := .Section | lower }}
             <a href="{{ .RelPermalink }}" class="archive-item-row archive-item" data-tags="{{ range .Params.tags }}{{ . | urlize }} {{ end }}">
-              <span class="archive-item-topic t-{{ $topic }}">{{ $topic }}</span>
+              <span class="archive-item-topic tag-{{ $topic }}">{{ $topic }}</span>
               <span class="archive-item-title">{{ .Title }}</span>
               <time class="archive-item-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02" }}</time>
             </a>

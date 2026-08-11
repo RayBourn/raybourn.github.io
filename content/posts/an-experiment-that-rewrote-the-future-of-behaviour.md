@@ -3,10 +3,10 @@ title: "An Experiment That Rewrote the Future of Behaviour"
 date: 2025-09-29T00:00:00Z
 draft: false
 authors: "Parminder S Rana"
-categories: ["science"]
 tags: ["Psychology", "Experiment", "Behaviour"]
 cover: "https://cdn.jsdelivr.net/gh/RayBourn/2026@main/Images/Jan26/skinner_box.webp"
 summary: "How B. F. Skinner's famous experiment shaped our understanding of reinforcement and how modern apps leverage it for digital addiction."
+aliases: ["/science/an-experiment-that-rewrote-the-future-of-behaviour/", "/science/an-experiment-that-rewrote-the-future-of-behaviour"]
 ---
 
 It was a time I remembered from 6th grade. I went to the school office to pick

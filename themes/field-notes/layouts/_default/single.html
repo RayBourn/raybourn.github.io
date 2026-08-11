@@ -2,7 +2,7 @@
 
 <article class="wrap" data-pagefind-body>
   <header class="post-header">
-    {{ $postSections := slice "issue" "life" "nature" "science" "tech" "books" }}
+    {{ $postSections := slice "posts" "books" }}
     {{ if in $postSections .Section }}
       {{ partial "meta-strip.html" . }}
     {{ end }}
@@ -75,7 +75,7 @@
   </div>
 </article>
 
-{{ $postSections := slice "issue" "life" "nature" "science" "tech" "books" }}
+{{ $postSections := slice "posts" "books" }}
 {{ if in $postSections .Section }}
   <div class="wrap">
     {{ partial "author-card.html" . }}
@@ -99,9 +99,5 @@
     </section>
   {{ end }}
 {{ end }}
-
-<div class="wrap">
-  {{ partial "newsletter-callout.html" . }}
-</div>
 
 {{ end }}
